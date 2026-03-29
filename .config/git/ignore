@@ -1,17 +1,11 @@
-**/.claude/settings.local.json
 
 # macOS
 .DS_Store
-.Spotlight-V100
 .Trashes
-._*
 
 # エディタ
 *.swp
 *.swo
-*~
-.idea/
-*.iml
 
 # 環境変数・機密情報
 .env
@@ -20,3 +14,6 @@
 
 # ログ
 *.log
+
+# claude
+**/.claude/settings.local.json
