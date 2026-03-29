@@ -1,0 +1,19 @@
+
+# macOS
+.DS_Store
+.Trashes
+
+# エディタ
+*.swp
+*.swo
+
+# 環境変数・機密情報
+.env
+.env.local
+.env.*.local
+
+# ログ
+*.log
+
+# claude
+**/.claude/settings.local.json
