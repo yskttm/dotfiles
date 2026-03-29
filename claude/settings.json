@@ -80,8 +80,9 @@
     "network": {
       "allowedDomains": [
         "github.com",
-        "*.rubygems.org",
+        "*.github.com",
         "rubygems.org",
+        "*.rubygems.org",
         "*.cloudfront.net",
         "registry.npmjs.org",
         "hub.docker.com",
