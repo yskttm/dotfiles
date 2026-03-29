@@ -16,49 +16,19 @@ cd ~/dotfiles
 2. Homebrew が未インストールの場合はインストール
 3. `Brewfile` をもとにアプリケーションをインストール
 
-## 管理対象ファイル
+## マニュアル運用
 
-### dotfiles (`~/`)
+### Raycast
 
-| ファイル | 説明 |
-|---|---|
-| `.zshrc` | zsh 設定（エイリアス、PATH、mise/brew の初期化） |
-| `.gitconfig` | Git グローバル設定 |
-| `.vimrc` | Vim 設定 |
-| `.bunfig.toml` | Bun パッケージマネージャ設定 |
+Raycast の設定は Cloud Sync が有料プランのため、手動で export/import します。
 
-### `~/.config/`
+**設定を保存する（変更のたびに実行）**
 
-| パス | 説明 |
-|---|---|
-| `git/ignore` | グローバル .gitignore |
-| `mise/config.toml` | mise によるランタイムバージョン管理設定 |
-| `gh/config.yml` | GitHub CLI 設定 |
-| `karabiner/karabiner.json` | Karabiner-Elements キーボードカスタマイズ |
+1. Raycast を開く → `Settings → Advanced → Export Settings`
+2. `Raycast-confg-export.rayconfig` として `~/dotfiles/` に上書き保存
+3. `git add` して commit
 
-### `~/.cspell/`
+**新しい Mac に移行する場合**
 
-| パス | 説明 |
-|---|---|
-| `custom-dictionary.txt` | cspell カスタム辞書 |
-
-### Claude Code (`~/.claude/`)
-
-| ファイル | 説明 |
-|---|---|
-| `claude/CLAUDE.md` | Claude Code グローバル指示（言語・Git ワークフロー等） |
-| `claude/settings.json` | Claude Code 設定（権限・sandbox・テレメトリ等） |
-
-### アプリケーション (`Brewfile`)
-
-Homebrew bundle で管理しています。
-
-- **formula**: `mise`, `gh`, `git`, `eza`, `ripgrep`, `zellij`, `jq`, `k9s`, `stern` など
-- **cask**: `amazon-workspaces`, `gcloud-cli`, `slack-cli`
-- **Mac App Store**: `mas` でインストール（`Brewfile` に `mas` 行を追記して管理）
-
-## 新しい Mac に移行する場合の注意点
-
-- VS Code の設定は Settings Sync で管理しています（dotfiles 管理外）
--Mac App Store アプリは `Brewfile` の `mas` 行に App ID を追記することで管理できます
-- `brew bundle dump --force` で現在の環境から `Brewfile` を再生成できます
+1. `git clone` 後、Raycast を開く → `Settings → Advanced → Import Settings`
+2. `~/dotfiles/Raycast-confg-export.rayconfig` を選択
