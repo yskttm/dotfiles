@@ -1,0 +1,25 @@
+# This is Git's per-user configuration file.
+[user]
+	name = yskttm
+	email = 4784963+yskttm@users.noreply.github.com
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore_global
+	untrackedCache = true
+[color]
+	ui = auto
+[fetch]
+	prune = true
+[rebase]
+	autosquash = true
+	autostash = true
+[pull]
+	rebase = true
+[push]
+	default = simple
+[rerere]
+	enabled = true
+[alias]
+	pushf = push --force-with-lease
+[init]
+	defaultBranch = main
