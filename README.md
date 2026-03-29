@@ -33,7 +33,6 @@ cd ~/dotfiles
 |---|---|
 | `git/ignore` | グローバル .gitignore |
 | `mise/config.toml` | mise によるランタイムバージョン管理設定 |
-| `zellij/config.kdl` | Zellij ターミナルマルチプレクサ設定 |
 | `gh/config.yml` | GitHub CLI 設定 |
 | `karabiner/karabiner.json` | Karabiner-Elements キーボードカスタマイズ |
 
