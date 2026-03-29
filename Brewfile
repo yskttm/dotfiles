@@ -26,9 +26,28 @@ brew "yarn"
 brew "zellij"
 
 # Casks
+cask "1password"
 cask "amazon-workspaces"
+cask "appcleaner"
+cask "claude"
+cask "cursor"
+cask "docker"
+cask "figma"
 cask "gcloud-cli"
+cask "google-chrome"
+cask "karabiner-elements"
+cask "logi-options-plus"
+cask "raycast"
+cask "slack"
 cask "slack-cli"
+cask "superwhisper"
+cask "tableplus"
+cask "visual-studio-code"
+cask "warp"
+cask "windsurf"
+cask "zoom"
 
 # Mac App Store
-# mas "App Name", id: 000000000
+# mas "CotEditor", id: 000000000
+# mas "DataShredderForMac", id: 000000000
+# mas "TestFlight", id: 000000000
