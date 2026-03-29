@@ -40,6 +40,10 @@ link_dotfile "$DOTFILES_DIR/.config/karabiner/karabiner.json" "$HOME/.config/kar
 # ~/.cspell/ 配下
 link_dotfile "$DOTFILES_DIR/.cspell/custom-dictionary.txt" "$HOME/.cspell/custom-dictionary.txt"
 
+# Claude Code
+link_dotfile "$DOTFILES_DIR/claude/CLAUDE.md"      "$HOME/.claude/CLAUDE.md"
+link_dotfile "$DOTFILES_DIR/claude/settings.json"  "$HOME/.claude/settings.json"
+
 
 echo ""
 echo "シンボリックリンクの作成が完了しました。"

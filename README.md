@@ -42,6 +42,13 @@ cd ~/dotfiles
 |---|---|
 | `custom-dictionary.txt` | cspell カスタム辞書 |
 
+### Claude Code (`~/.claude/`)
+
+| ファイル | 説明 |
+|---|---|
+| `claude/CLAUDE.md` | Claude Code グローバル指示（言語・Git ワークフロー等） |
+| `claude/settings.json` | Claude Code 設定（権限・sandbox・テレメトリ等） |
+
 ### アプリケーション (`Brewfile`)
 
 Homebrew bundle で管理しています。
