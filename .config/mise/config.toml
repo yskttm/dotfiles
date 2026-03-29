@@ -9,3 +9,4 @@ python = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node", "ruby"]
+trusted_config_paths = ["~/dotfiles"]
