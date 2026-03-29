@@ -38,6 +38,10 @@ link_dotfile "$DOTFILES_DIR/.config/zellij/config.kdl"   "$HOME/.config/zellij/c
 link_dotfile "$DOTFILES_DIR/.config/gh/config.yml"       "$HOME/.config/gh/config.yml"
 link_dotfile "$DOTFILES_DIR/.config/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
 
+# ~/.cspell/ 配下
+link_dotfile "$DOTFILES_DIR/.cspell/custom-dictionary.txt" "$HOME/.cspell/custom-dictionary.txt"
+
+
 echo ""
 echo "シンボリックリンクの作成が完了しました。"
 

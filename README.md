@@ -43,13 +43,6 @@ cd ~/dotfiles
 |---|---|
 | `custom-dictionary.txt` | cspell カスタム辞書 |
 
-### VS Code (`~/Library/Application Support/Code/User/`)
-
-| ファイル | 説明 |
-|---|---|
-| `vscode/settings.json` | VS Code ユーザー設定 |
-| `vscode/keybindings.json` | VS Code キーバインド設定 |
-
 ### アプリケーション (`Brewfile`)
 
 Homebrew bundle で管理しています。
@@ -60,6 +53,6 @@ Homebrew bundle で管理しています。
 
 ## 新しい Mac に移行する場合の注意点
 
-- `vscode/settings.json` 内の `vs-kubernetes` のパスはマシン固有のため、初回セットアップ後に VS Code から自動更新されます
-- Mac App Store アプリは `Brewfile` の `mas` 行に App ID を追記することで管理できます
+- VS Code の設定は Settings Sync で管理しています（dotfiles 管理外）
+-Mac App Store アプリは `Brewfile` の `mas` 行に App ID を追記することで管理できます
 - `brew bundle dump --force` で現在の環境から `Brewfile` を再生成できます
