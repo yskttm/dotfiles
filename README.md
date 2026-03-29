@@ -20,15 +20,19 @@ cd ~/dotfiles
 
 ### Raycast
 
-Raycast の設定は Cloud Sync が有料プランのため、手動で export/import します。
+Raycast の設定は手動で export/import します。
 
 **設定を保存する（変更のたびに実行）**
 
 1. Raycast を開く → `Settings → Advanced → Export Settings`
-2. `Raycast-confg-export.rayconfig` として `~/dotfiles/` に上書き保存
-3. `git add` して commit
+2. `raycast-confg.rayconfig` として `~/dotfiles/` に上書き保存
 
 **新しい Mac に移行する場合**
 
 1. `git clone` 後、Raycast を開く → `Settings → Advanced → Import Settings`
-2. `~/dotfiles/Raycast-confg-export.rayconfig` を選択
+2. `~/dotfiles/raycast-confg.rayconfig` を選択
+3. password を入力
+
+### VS Code, Warp, Chrome, etc
+
+Cloud sync 機能を利用

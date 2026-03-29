@@ -1,8 +1,13 @@
 export EDITOR="code"
 export PATH="$HOME/.local/bin:$PATH"
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(mise activate zsh)"
+HISTSIZE=1000000
+SAVEHIST=1000000
+setopt extended_history share_history
+setopt no_flow_control
+
+(type brew &>/dev/null 2>&1) && eval "$(/opt/homebrew/bin/brew shellenv)"
+(type mise &>/dev/null 2>&1) && eval "$(mise activate zsh)"
 
 alias ls='eza -F'
 alias ll='eza -al'
