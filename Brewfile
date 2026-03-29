@@ -35,6 +35,7 @@ cask "docker"
 cask "figma"
 cask "gcloud-cli"
 cask "google-chrome"
+cask "google-japanese-ime"
 cask "karabiner-elements"
 cask "logi-options-plus"
 cask "raycast"
@@ -44,10 +45,4 @@ cask "superwhisper"
 cask "tableplus"
 cask "visual-studio-code"
 cask "warp"
-cask "windsurf"
 cask "zoom"
-
-# Mac App Store
-# mas "CotEditor", id: 000000000
-# mas "DataShredderForMac", id: 000000000
-# mas "TestFlight", id: 000000000
