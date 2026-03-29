@@ -4,7 +4,6 @@
 	email = 4784963+yskttm@users.noreply.github.com
 [core]
 	editor = vim
-	excludesfile = ~/.gitignore_global
 	untrackedCache = true
 [color]
 	ui = auto
