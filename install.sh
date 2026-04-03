@@ -44,6 +44,9 @@ link_dotfile "$DOTFILES_DIR/.cspell/custom-dictionary.txt" "$HOME/.cspell/custom
 link_dotfile "$DOTFILES_DIR/claude/CLAUDE.md"      "$HOME/.claude/CLAUDE.md"
 link_dotfile "$DOTFILES_DIR/claude/settings.json"  "$HOME/.claude/settings.json"
 
+# Colima
+link_dotfile "$DOTFILES_DIR/colima/default/colima.yaml" "$HOME/.colima/default/colima.yaml"
+
 
 echo ""
 echo "シンボリックリンクの作成が完了しました。"
