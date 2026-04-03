@@ -1,2 +1,27 @@
 .DS_Store
 .dotfiles_backup/
+
+# SSH 秘密鍵
+id_rsa*
+id_ed25519*
+id_ecdsa*
+id_dsa*
+*.pem
+*.p12
+*.pfx
+
+# AWS 認証情報
+.aws/credentials
+
+# GCP 認証情報
+*-service-account*.json
+application_default_credentials.json
+
+# その他クラウド・サービス認証情報
+.azure/
+.terraform/
+
+# 機密情報ディレクトリ
+secrets/
+secret/
+credentials/
