@@ -7,8 +7,9 @@
 *.swo
 
 # 環境変数・機密情報
-.env*
-*.env
+.env
+.env.local
+.env.*.local
 
 # トークン・シークレットファイル
 *.token
