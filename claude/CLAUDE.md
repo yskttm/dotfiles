@@ -12,7 +12,10 @@
   1. main(or develop) branch から feature branch を作成する
   2. ファイルを修正/作成/削除する
   3. commit する
-  4. PR を作る
+  4. ユーザに修正したファイル一覧を提示して、push してよいか確認をとる
+  5. push してOKならば、PR を作る
+  6. PR の URL を提示する
+
 - main への直接コミットは行わない。
 
 ## 変更に関するルール
