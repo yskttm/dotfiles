@@ -41,8 +41,9 @@ link_dotfile "$DOTFILES_DIR/.config/karabiner/karabiner.json" "$HOME/.config/kar
 link_dotfile "$DOTFILES_DIR/.cspell/custom-dictionary.txt" "$HOME/.cspell/custom-dictionary.txt"
 
 # Claude Code
-link_dotfile "$DOTFILES_DIR/claude/CLAUDE.md"      "$HOME/.claude/CLAUDE.md"
-link_dotfile "$DOTFILES_DIR/claude/settings.json"  "$HOME/.claude/settings.json"
+link_dotfile "$DOTFILES_DIR/claude/CLAUDE.md"                "$HOME/.claude/CLAUDE.md"
+link_dotfile "$DOTFILES_DIR/claude/settings.json"            "$HOME/.claude/settings.json"
+link_dotfile "$DOTFILES_DIR/claude/statusline-command.sh"    "$HOME/.claude/statusline-command.sh"
 
 # Colima
 link_dotfile "$DOTFILES_DIR/colima/default/colima.yaml" "$HOME/.colima/default/colima.yaml"
