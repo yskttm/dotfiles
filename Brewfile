@@ -22,7 +22,7 @@ brew "tmux"
 brew "uv"
 brew "yarn"
 brew "zellij"
-brew "derailed/k9s/k9s"
+brew "k9s"
 brew "doppler"
 brew "bun"
 
