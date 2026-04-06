@@ -1,30 +1,31 @@
-# Taps
-
-# Formulae
 brew "act"
 brew "awscli"
 brew "biome"
 brew "bun"
+brew "colima", restart_service: :changed
 brew "deno"
+brew "docker"
+brew "docker-compose"
 brew "doppler"
 brew "eza"
 brew "gh"
 brew "git"
 brew "gnupg"
+brew "googleworkspace-cli"
 brew "jq"
 brew "k9s"
 brew "kubernetes-cli"
+brew "libyaml"
 brew "mise"
 brew "ni"
-brew "node"
 brew "pnpm"
 brew "ripgrep"
 brew "stern"
+brew "tmux"
 brew "uv"
 brew "yarn"
 brew "zellij"
 
-# Casks
 cask "1password"
 cask "amazon-workspaces"
 cask "appcleaner"
