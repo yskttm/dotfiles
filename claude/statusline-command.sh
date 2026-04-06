@@ -58,8 +58,11 @@ parts=()
 # Output style
 [ -n "$output_style" ] && [ "$output_style" != "default" ] && parts+=("$(printf "${DIM}style:${output_style}${RESET}")")
 
-# CWD
-[ -n "$cwd" ] && parts+=("$(printf "${BLUE}${cwd}${RESET}")")
+# CWD (replace $HOME with ~)
+if [ -n "$cwd" ]; then
+  display_cwd="${cwd/#$HOME/~}"
+  parts+=("$(printf "${BLUE}${display_cwd}${RESET}")")
+fi
 
 # Session name
 [ -n "$session_name" ] && parts+=("$(printf "${DIM}session:${session_name}${RESET}")")
@@ -80,18 +83,18 @@ if [ -n "$used_pct" ]; then
 fi
 
 # Token counts (total cumulative)
-if [ -n "$total_in" ] || [ -n "$total_out" ]; then
-  tok_str="$(printf "${DIM}total-in:${total_in} out:${total_out}${RESET}")"
-  parts+=("$tok_str")
-fi
+# if [ -n "$total_in" ] || [ -n "$total_out" ]; then
+#   tok_str="$(printf "${DIM}total-in:${total_in} out:${total_out}${RESET}")"
+#   parts+=("$tok_str")
+# fi
 
 # Current usage tokens
-if [ -n "$cur_in" ] || [ -n "$cur_out" ]; then
-  cur_str="$(printf "${DIM}last-in:${cur_in} out:${cur_out}${RESET}")"
-  [ -n "$cache_write" ] && [ "$cache_write" != "0" ] && cur_str="${cur_str}$(printf "${DIM} cw:${cache_write}${RESET}")"
-  [ -n "$cache_read" ]  && [ "$cache_read"  != "0" ] && cur_str="${cur_str}$(printf "${DIM} cr:${cache_read}${RESET}")"
-  parts+=("$cur_str")
-fi
+# if [ -n "$cur_in" ] || [ -n "$cur_out" ]; then
+#   cur_str="$(printf "${DIM}last-in:${cur_in} out:${cur_out}${RESET}")"
+#   [ -n "$cache_write" ] && [ "$cache_write" != "0" ] && cur_str="${cur_str}$(printf "${DIM} cw:${cache_write}${RESET}")"
+#   [ -n "$cache_read" ]  && [ "$cache_read"  != "0" ] && cur_str="${cur_str}$(printf "${DIM} cr:${cache_read}${RESET}")"
+#   parts+=("$cur_str")
+# fi
 
 # Rate limits
 if [ -n "$five_h_pct" ]; then
