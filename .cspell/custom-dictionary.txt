@@ -1,6 +1,7 @@
 # Custom Dictionary Words
 activemodel
 anthropics
+appcleaner
 argoproj
 asctime
 autify
@@ -8,6 +9,7 @@ autocorrect
 autocorrection
 autoloader
 autoloaders
+awscli
 binwrite
 biomejs
 brightcove
@@ -34,6 +36,7 @@ Denormalized
 devs
 DOGSTATSD
 dont
+dopplerhq
 downsell
 dsdsocket
 enquete
@@ -46,6 +49,7 @@ fullpath
 Futatsu
 gamification
 Gantt
+googleworkspace
 gsub
 gsuite
 guids
@@ -59,6 +63,7 @@ ingester
 jsdom
 Jyuken
 jyukensapuri
+karabiner
 karpenter
 karte
 kobetsu
@@ -68,9 +73,11 @@ Kustomization
 kustomize
 kustomized
 libpq
+libyaml
 llen
 localstack
 Loggable
+logi
 lograge
 lrange
 ltrim
@@ -150,8 +157,10 @@ statsd
 studyplus
 studysapuri
 stylesheet
+superwhisper
 syncer
 tabindex
+tableplus
 tarako
 targetter
 tbody
