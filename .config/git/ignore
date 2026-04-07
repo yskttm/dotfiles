@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+.Trashes
+
+# エディタ
+*.swp
+*.swo
+
+# 環境変数・機密情報
+.env
+.env.local
+.env.*.local
+
+# トークン・シークレットファイル
+*.token
+*.secret
+*_secret
+*_token
+.netrc
+netrc
+
+# ローカル上書き設定
+*.local*
+
+# ログ
+*.log
+
+# claude
+**/.claude/settings.local.json

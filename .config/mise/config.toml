@@ -1,0 +1,12 @@
+[tools]
+node = "latest"
+bun = "latest"
+deno = "latest"
+rust = "latest"
+go = "latest"
+ruby = "latest"
+python = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node", "ruby"]
+trusted_config_paths = ["~/dotfiles"]
