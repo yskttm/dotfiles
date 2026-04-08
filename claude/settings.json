@@ -50,6 +50,10 @@
     ],
     "ask": ["Bash(git push *)"]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
+  },
   "enabledPlugins": {
     "warp@claude-code-warp": true
   },
@@ -72,10 +76,6 @@
         "repo": "anthropics/skills"
       }
     }
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "bash ~/.claude/statusline-command.sh"
   },
   "language": "Japanese",
   "sandbox": {
