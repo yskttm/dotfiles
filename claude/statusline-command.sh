@@ -35,6 +35,19 @@ worktree_name=$(echo "$input" | jq -r '.worktree.name // empty')
 worktree_branch=$(echo "$input" | jq -r '.worktree.branch // empty')
 output_style=$(echo "$input" | jq -r '.output_style.name // empty')
 
+# Git branch (from cwd or workspace.current_dir)
+git_dir=$(echo "$input" | jq -r '.workspace.current_dir // .cwd // empty')
+git_branch=""
+if [ -n "$git_dir" ]; then
+  git_branch=$(git -C "$git_dir" --no-optional-locks symbolic-ref --short HEAD 2>/dev/null)
+  if [ -z "$git_branch" ]; then
+    git_branch=$(git -C "$git_dir" --no-optional-locks rev-parse --short HEAD 2>/dev/null)
+  fi
+fi
+
+# Git worktree name from workspace (linked worktree)
+git_worktree=$(echo "$input" | jq -r '.workspace.git_worktree // empty')
+
 # ANSI colors
 RESET='\033[0m'
 BOLD='\033[1m'
@@ -49,8 +62,11 @@ WHITE='\033[37m'
 
 parts=()
 
+# Current time
+parts+=("$(printf "${MAGENTA}$(date +%H:%M)${RESET}")")
+
 # Version
-[ -n "$version" ] && parts+=("$(printf "${DIM}v${version}${RESET}")")
+# [ -n "$version" ] && parts+=("$(printf "${DIM}v${version}${RESET}")")
 
 # Model
 [ -n "$model" ] && parts+=("$(printf "${CYAN}${BOLD}${model}${RESET}")")
@@ -62,6 +78,13 @@ parts=()
 if [ -n "$cwd" ]; then
   display_cwd="${cwd/#$HOME/~}"
   parts+=("$(printf "${BLUE}${display_cwd}${RESET}")")
+fi
+
+# Git branch
+if [ -n "$git_branch" ]; then
+  git_str="$(printf "${YELLOW}${git_branch}${RESET}")"
+  [ -n "$git_worktree" ] && git_str="${git_str}$(printf "${DIM}(wt:${git_worktree})${RESET}")"
+  parts+=("$git_str")
 fi
 
 # Session name
@@ -101,13 +124,15 @@ if [ -n "$five_h_pct" ]; then
   five_int=$(printf "%.0f" "$five_h_pct")
   reset_time=""
   [ -n "$five_h_reset" ] && reset_time=" rst:$(date -r "$five_h_reset" +%H:%M 2>/dev/null)"
-  parts+=("$(printf "${MAGENTA}5h:${five_int}%%${reset_time}${RESET}")")
+  [ "$five_int" -ge 80 ] && rl_color="$RED" || rl_color="$DIM"
+  parts+=("$(printf "${rl_color}5h:${five_int}%%${reset_time}${RESET}")")
 fi
 if [ -n "$seven_d_pct" ]; then
   seven_int=$(printf "%.0f" "$seven_d_pct")
   reset_time=""
   [ -n "$seven_d_reset" ] && reset_time=" rst:$(date -r "$seven_d_reset" +%m/%d 2>/dev/null)"
-  parts+=("$(printf "${MAGENTA}7d:${seven_int}%%${reset_time}${RESET}")")
+  [ "$seven_int" -ge 80 ] && rl_color="$RED" || rl_color="$DIM"
+  parts+=("$(printf "${rl_color}7d:${seven_int}%%${reset_time}${RESET}")")
 fi
 
 # Vim mode
