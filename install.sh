@@ -44,6 +44,7 @@ link_dotfile "$DOTFILES_DIR/.cspell/custom-dictionary.txt" "$HOME/.cspell/custom
 link_dotfile "$DOTFILES_DIR/claude/CLAUDE.md"                "$HOME/.claude/CLAUDE.md"
 link_dotfile "$DOTFILES_DIR/claude/settings.json"            "$HOME/.claude/settings.json"
 link_dotfile "$DOTFILES_DIR/claude/statusline-command.sh"    "$HOME/.claude/statusline-command.sh"
+link_dotfile "$DOTFILES_DIR/claude/skills"                   "$HOME/.claude/skills"
 
 # Colima
 link_dotfile "$DOTFILES_DIR/colima/default/colima.yaml" "$HOME/.colima/default/colima.yaml"
