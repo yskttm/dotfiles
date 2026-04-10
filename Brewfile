@@ -1,7 +1,8 @@
 brew "act"
 brew "awscli"
 brew "biome"
-brew "bun"
+brew "vite"
+brew "pnpm"
 brew "colima", restart_service: :changed
 brew "deno"
 brew "docker"
@@ -25,6 +26,9 @@ brew "tmux"
 brew "uv"
 brew "yarn"
 brew "zellij"
+
+tap "oven-sh/bun"
+brew "oven-sh/bun/bun"
 
 cask "1password"
 cask "amazon-workspaces"
