@@ -58,6 +58,8 @@ if ! command -v brew &>/dev/null; then
   echo ""
   echo "Homebrew をインストールしています..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  # インストール後、現在のシェルセッションで brew を使えるようにする
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # Brewfile からアプリをインストール
