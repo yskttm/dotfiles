@@ -48,7 +48,9 @@
       "Write(**/*secret*)",
       "Write(**/secrets/**)"
     ],
-    "ask": ["Bash(git push *)"]
+    "ask": [
+      "Bash(git push *)"
+    ]
   },
   "statusLine": {
     "type": "command",
@@ -94,6 +96,10 @@
         "registry-1.docker.io"
       ]
     },
-    "excludedCommands": ["docker", "docker-compose", "docker compose"]
+    "excludedCommands": [
+      "docker",
+      "docker-compose",
+      "docker compose"
+    ]
   }
 }
