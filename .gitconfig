@@ -23,3 +23,5 @@
 	pushf = push --force-with-lease
 [init]
 	defaultBranch = main
+[ghq]
+	root = ~/src
