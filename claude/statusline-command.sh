@@ -24,8 +24,8 @@ cache_read=$(echo "$input" | jq -r '.context_window.current_usage.cache_read_inp
 # Rate limits
 five_h_pct=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
 five_h_reset=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
-seven_d_pct=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
-seven_d_reset=$(echo "$input" | jq -r '.rate_limits.seven_day.resets_at // empty')
+# seven_d_pct=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
+# seven_d_reset=$(echo "$input" | jq -r '.rate_limits.seven_day.resets_at // empty')
 
 # Optional: vim mode, agent, worktree, output_style
 vim_mode=$(echo "$input" | jq -r '.vim.mode // empty')
@@ -74,9 +74,20 @@ parts+=("$(printf "${MAGENTA}$(date +%H:%M)${RESET}")")
 # Output style
 [ -n "$output_style" ] && [ "$output_style" != "default" ] && parts+=("$(printf "${DIM}style:${output_style}${RESET}")")
 
-# CWD (replace $HOME with ~)
+# CWD (replace $HOME with ~, abbreviate all but last component)
 if [ -n "$cwd" ]; then
   display_cwd="${cwd/#$HOME/~}"
+  IFS='/' read -ra _components <<< "$display_cwd"
+  _abbreviated=()
+  _last_idx=$(( ${#_components[@]} - 1 ))
+  for _i in "${!_components[@]}"; do
+    if [ "$_i" -eq "$_last_idx" ]; then
+      _abbreviated+=("${_components[$_i]}")
+    else
+      _abbreviated+=("${_components[$_i]:0:1}")
+    fi
+  done
+  display_cwd=$(IFS='/'; echo "${_abbreviated[*]}")
   parts+=("$(printf "${BLUE}${display_cwd}${RESET}")")
 fi
 
@@ -127,13 +138,13 @@ if [ -n "$five_h_pct" ]; then
   [ "$five_int" -ge 80 ] && rl_color="$RED" || rl_color="$DIM"
   parts+=("$(printf "${rl_color}5h:${five_int}%%${reset_time}${RESET}")")
 fi
-if [ -n "$seven_d_pct" ]; then
-  seven_int=$(printf "%.0f" "$seven_d_pct")
-  reset_time=""
-  [ -n "$seven_d_reset" ] && reset_time=" rst:$(date -r "$seven_d_reset" +%m/%d 2>/dev/null)"
-  [ "$seven_int" -ge 80 ] && rl_color="$RED" || rl_color="$DIM"
-  parts+=("$(printf "${rl_color}7d:${seven_int}%%${reset_time}${RESET}")")
-fi
+# if [ -n "$seven_d_pct" ]; then
+#   seven_int=$(printf "%.0f" "$seven_d_pct")
+#   reset_time=""
+#   [ -n "$seven_d_reset" ] && reset_time=" rst:$(date -r "$seven_d_reset" +%m/%d 2>/dev/null)"
+#   [ "$seven_int" -ge 80 ] && rl_color="$RED" || rl_color="$DIM"
+#   parts+=("$(printf "${rl_color}7d:${seven_int}%%${reset_time}${RESET}")")
+# fi
 
 # Vim mode
 [ -n "$vim_mode" ] && parts+=("$(printf "${YELLOW}[${vim_mode}]${RESET}")")

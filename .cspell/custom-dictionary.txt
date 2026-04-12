@@ -35,6 +35,7 @@ devs
 DOGSTATSD
 dont
 dopplerhq
+dotenv
 downsell
 dsdsocket
 enquete
@@ -46,6 +47,7 @@ filesize
 fullpath
 gamification
 Gantt
+googleauth
 googleworkspace
 gsub
 gsuite
