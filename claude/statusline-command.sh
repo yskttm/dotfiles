@@ -23,9 +23,7 @@ cache_read=$(echo "$input" | jq -r '.context_window.current_usage.cache_read_inp
 
 # Rate limits
 five_h_pct=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
-five_h_reset=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
-# seven_d_pct=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
-# seven_d_reset=$(echo "$input" | jq -r '.rate_limits.seven_day.resets_at // empty')
+# five_h_reset=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
 
 # Optional: vim mode, agent, worktree, output_style
 vim_mode=$(echo "$input" | jq -r '.vim.mode // empty')
@@ -130,18 +128,9 @@ fi
 # Rate limits
 if [ -n "$five_h_pct" ]; then
   five_int=$(printf "%.0f" "$five_h_pct")
-  reset_time=""
-  [ -n "$five_h_reset" ] && reset_time=" rst:$(date -r "$five_h_reset" +%H:%M 2>/dev/null)"
   [ "$five_int" -ge 80 ] && rl_color="$RED" || rl_color="$DIM"
-  parts+=("$(printf "${rl_color}5h:${five_int}%%${reset_time}${RESET}")")
+  parts+=("$(printf "${rl_color}5h:${five_int}%%${RESET}")")
 fi
-# if [ -n "$seven_d_pct" ]; then
-#   seven_int=$(printf "%.0f" "$seven_d_pct")
-#   reset_time=""
-#   [ -n "$seven_d_reset" ] && reset_time=" rst:$(date -r "$seven_d_reset" +%m/%d 2>/dev/null)"
-#   [ "$seven_int" -ge 80 ] && rl_color="$RED" || rl_color="$DIM"
-#   parts+=("$(printf "${rl_color}7d:${seven_int}%%${reset_time}${RESET}")")
-# fi
 
 # Vim mode
 [ -n "$vim_mode" ] && parts+=("$(printf "${YELLOW}[${vim_mode}]${RESET}")")
