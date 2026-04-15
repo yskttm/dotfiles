@@ -69,7 +69,7 @@ parts+=("$(printf "${MAGENTA}$(date +%H:%M)${RESET}")")
 # [ -n "$version" ] && parts+=("$(printf "${DIM}v${version}${RESET}")")
 
 # Model
-[ -n "$model" ] && parts+=("$(printf "${CYAN}${BOLD}${model}${RESET}")")
+[ -n "$model" ] && parts+=("$(printf "${WHITE}${BOLD}${model}${RESET}")")
 
 # Output style
 [ -n "$output_style" ] && [ "$output_style" != "default" ] && parts+=("$(printf "${DIM}style:${output_style}${RESET}")")
@@ -106,13 +106,10 @@ if [ -n "$used_pct" ]; then
   used_int=$(printf "%.0f" "$used_pct")
   if [ "$used_int" -ge 80 ]; then
     color="$RED"
-  elif [ "$used_int" -ge 50 ]; then
-    color="$YELLOW"
   else
-    color="$GREEN"
+    color="$DIM"
   fi
-  ctx_str="${color}ctx:${used_int}%${RESET}"
-  [ -n "$ctx_size" ] && ctx_str="${ctx_str}${DIM}/${ctx_size}${RESET}"
+  ctx_str="${color}ctx:${used_int}%%${RESET}"
   parts+=("$(printf "$ctx_str")")
 fi
 
