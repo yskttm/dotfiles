@@ -36,6 +36,7 @@
       "Bash(git push --force-with-lease *)",
       "Bash(rm -rf *)",
       "Bash(wget *)",
+      "Bash(curl *)",
       "Read(**/.env*)",
       "Read(**/id_rsa*)",
       "Read(**/id_ed25519*)",
@@ -77,6 +78,7 @@
     "command": "bash ~/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
+    "ruby-lsp@claude-plugins-official": true,
     "warp@claude-code-warp": true
   },
   "extraKnownMarketplaces": {
@@ -86,16 +88,16 @@
         "repo": "anthropics/claude-plugins-official"
       }
     },
-    "claude-code-warp": {
-      "source": {
-        "source": "github",
-        "repo": "warpdotdev/claude-code-warp"
-      }
-    },
     "anthropic-agent-skills": {
       "source": {
         "source": "github",
         "repo": "anthropics/skills"
+      }
+    },
+    "claude-code-warp": {
+      "source": {
+        "source": "github",
+        "repo": "warpdotdev/claude-code-warp"
       }
     }
   },
