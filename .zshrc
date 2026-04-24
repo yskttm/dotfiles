@@ -1,9 +1,16 @@
+export LANG=ja_JP.UTF-8
 export EDITOR="code"
 export PATH="$HOME/.local/bin:$PATH"
 
+autoload -Uz colors
+colors
+
+setopt print_eight_bit
+
 HISTSIZE=1000000
 SAVEHIST=1000000
-setopt extended_history share_history
+setopt extended_history
+setopt share_history
 setopt no_flow_control
 
 (type brew &>/dev/null 2>&1) && eval "$(/opt/homebrew/bin/brew shellenv)"
