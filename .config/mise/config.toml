@@ -6,6 +6,7 @@ rust = "latest"
 go = "latest"
 ruby = "latest"
 python = "latest"
+aube = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node", "ruby"]
