@@ -81,7 +81,6 @@
   },
   "enabledPlugins": {
     "ruby-lsp@claude-plugins-official": true,
-    "warp@claude-code-warp": true,
     "gopls-lsp@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
     "code-review@claude-plugins-official": false,
@@ -92,7 +91,8 @@
     "claude-md-management@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": true
+    "pyright-lsp@claude-plugins-official": true,
+    "warp@claude-code-warp": true
   },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
