@@ -43,6 +43,7 @@ brew bundle check --file=~/dotfiles/Brewfile --verbose 2>/dev/null | grep -v "^U
 - `.lesshst`, `.viminfo`, `.irb_history`, `.CFUserTextEncoding`, `.claude.json`
 - キャッシュ系ディレクトリ（`.cache`, `.cargo`, `.npm` 等）
 - 認証情報系（`.aws`, `.gnupg`, `.ssh`, `.kube` 等）
+- クラウド同期するツール（`raycast`, `warp`, `vscode` 等）
 
 ## 報告フォーマット
 
@@ -59,3 +60,24 @@ brew bundle check --file=~/dotfiles/Brewfile --verbose 2>/dev/null | grep -v "^U
 
 ### dotfiles 追加候補
 - 候補をリストアップし、追加する価値があるか簡単にコメント
+
+## 4. アクション選択
+
+報告の最後に、dotfiles への追加・更新をユーザーが選びやすいよう以下の形式で提示する：
+
+```
+次のアクションを選んでください（複数選択可）：
+
+[Brew]
+  A. ollama を Brewfile に追加する
+
+[dotfiles 追加候補]
+  B. ~/.config/foo を dotfiles に追加する
+  C. ~/.bar を dotfiles に追加する
+
+[その他]
+  Z. 何もしない
+```
+
+- 番号・記号で選べるようにする
+- 報告した内容のみを選択肢に挙げる（空の場合はセクションごと省略）
