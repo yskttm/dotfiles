@@ -50,6 +50,9 @@ link_dotfile "$DOTFILES_DIR/claude/hooks"                    "$HOME/.claude/hook
 # Colima
 link_dotfile "$DOTFILES_DIR/colima/default/colima.yaml" "$HOME/.colima/default/colima.yaml"
 
+# Docker
+link_dotfile "$DOTFILES_DIR/docker/config.json" "$HOME/.docker/config.json"
+
 
 echo ""
 echo "シンボリックリンクの作成が完了しました。"
