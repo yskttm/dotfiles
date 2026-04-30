@@ -11,6 +11,11 @@
       "Bash(git checkout *)",
       "Bash(git add *)",
       "Bash(git commit *)",
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(git status *)",
+      "Bash(git show *)",
+      "Bash(git fetch *)",
       "Bash(gh search *)",
       "Bash(gh pr list *)",
       "Bash(gh pr checks *)",
@@ -60,7 +65,8 @@
       "Bash(git branch -D *)",
       "Bash(git stash *)",
       "Bash(npm ci *)"
-    ]
+    ],
+    "defaultMode": "acceptEdits"
   },
   "hooks": {
     "PreToolUse": [
@@ -83,7 +89,7 @@
     "ruby-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
-    "code-review@claude-plugins-official": false,
+    "code-review@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
     "code-simplifier@claude-plugins-official": false,
@@ -137,5 +143,7 @@
       "docker compose"
     ]
   },
-  "advisorModel": "opus"
+  "advisorModel": "opus",
+  "autoScrollEnabled": false,
+  "showThinkingSummaries": true
 }
