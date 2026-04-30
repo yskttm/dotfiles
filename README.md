@@ -1,6 +1,6 @@
 # dotfiles
 
-macOS の開発環境設定を管理する dotfiles です。
+macOS の開発環境設定を管理する dotfiles
 
 ## セットアップ
 
@@ -20,19 +20,9 @@ cd ~/dotfiles
 
 ### Raycast
 
-Raycast の設定は手動で export/import します。
-
-**設定を保存する（変更のたびに実行）**
-
-1. Raycast を開く → `Settings → Advanced → Export Settings`
-2. `raycast-confg.rayconfig` として `~/dotfiles/` に上書き保存
-
-**新しい Mac に移行する場合**
-
-1. `git clone` 後、Raycast を開く → `Settings → Advanced → Import Settings`
-2. `~/dotfiles/raycast-confg.rayconfig` を選択
-3. password を入力
+- Raycast の設定は手動で export/import
+- 設定ファイルはパスワードが必須
 
 ### VS Code, Warp, Chrome, etc
 
-Cloud sync 機能を利用
+- Cloud sync 機能を利用
