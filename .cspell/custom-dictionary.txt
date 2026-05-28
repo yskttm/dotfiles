@@ -47,6 +47,7 @@ filesize
 fullpath
 gamification
 Gantt
+genai
 googleauth
 googleworkspace
 gsub
@@ -69,6 +70,7 @@ Kustomization
 kustomize
 kustomized
 libpq
+libsql
 libyaml
 llen
 localstack
