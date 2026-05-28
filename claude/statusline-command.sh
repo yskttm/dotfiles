@@ -97,7 +97,7 @@ if [ -n "$git_branch" ]; then
 fi
 
 # Session name
-[ -n "$session_name" ] && parts+=("$(printf "${DIM}session:${session_name}${RESET}")")
+# [ -n "$session_name" ] && parts+=("$(printf "${DIM}session:${session_name}${RESET}")")
 
 # Context window usage
 if [ -n "$used_pct" ]; then
