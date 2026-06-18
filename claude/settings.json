@@ -68,6 +68,7 @@
     ],
     "defaultMode": "acceptEdits"
   },
+  "model": "sonnet[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -143,8 +144,8 @@
       "docker compose"
     ]
   },
-  "advisorModel": "opus",
   "showThinkingSummaries": true,
   "autoScrollEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "advisorModel": "opus"
 }
