@@ -54,6 +54,7 @@ gsub
 gsuite
 guids
 gunicorn
+healthcheck
 healthz
 hmac
 ibsnet
@@ -85,7 +86,9 @@ mailjp
 manarepo
 maxlength
 mongomapper
+mybest
 mypage
+mysqladmin
 myusername
 navigations
 neast

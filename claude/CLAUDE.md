@@ -11,12 +11,16 @@
 - コードの変更は必ず以下の順序で実行する：
   1. main(or develop) branch から feature branch を作成する
   2. ファイルを修正/作成/削除する
-  3. commit する
+  3. 適度な単位で commit する
   4. ユーザに修正したファイル一覧を提示して、push してよいか確認をとる
-  5. push して OK ならば、push して PR を作成する
+  5. push して OK ならば、push して PR を作成する(PR Description は日本語)
   6. PR の URL を提示する
-
 - main への直接コミットは行わない。
+- commit
+  - メッセージは英語
+  - Conventional Commits を採用
+- PR
+  - Description は日本語
 
 ## 実装スタイル
 
