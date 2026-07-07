@@ -50,6 +50,13 @@ link_dotfile "$DOTFILES_DIR/claude/hooks"                    "$HOME/.claude/hook
 # Codex
 link_dotfile "$DOTFILES_DIR/codex/config.toml" "$HOME/.codex/config.toml"
 
+# Codex が config.toml に書き戻す [projects] セクションは個人の絶対パスを含むため、
+# clean filter でコミット対象から除外する（working tree には残る）
+if [ -d "$DOTFILES_DIR/.git" ]; then
+  git -C "$DOTFILES_DIR" config filter.codex-config.clean \
+    "awk '/^\\[/{skip = (\$0 ~ /^\\[projects/)} !skip'"
+fi
+
 # Colima
 link_dotfile "$DOTFILES_DIR/colima/default/colima.yaml" "$HOME/.colima/default/colima.yaml"
 

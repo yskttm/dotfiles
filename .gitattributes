@@ -1,0 +1,4 @@
+# Codex は trust 情報（個人の絶対パスを含む [projects] セクション）を
+# config.toml に書き戻すため、コミット時に clean filter で除去する
+# filter の実体は install.sh で git config に登録される
+codex/config.toml filter=codex-config
