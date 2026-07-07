@@ -1,0 +1,14 @@
+model = "gpt-5.4"
+model_reasoning_effort = "medium"
+
+[projects."/Users/yskttm/dotfiles"]
+trust_level = "trusted"
+
+[tui]
+notification_condition = "always"
+
+[tui.model_availability_nux]
+"gpt-5.5" = 3
+
+[features]
+hooks = true
