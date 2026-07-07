@@ -47,6 +47,9 @@ link_dotfile "$DOTFILES_DIR/claude/statusline-command.sh"    "$HOME/.claude/stat
 link_dotfile "$DOTFILES_DIR/claude/skills"                   "$HOME/.claude/skills"
 link_dotfile "$DOTFILES_DIR/claude/hooks"                    "$HOME/.claude/hooks"
 
+# Codex
+link_dotfile "$DOTFILES_DIR/codex/config.toml" "$HOME/.codex/config.toml"
+
 # Colima
 link_dotfile "$DOTFILES_DIR/colima/default/colima.yaml" "$HOME/.colima/default/colima.yaml"
 
