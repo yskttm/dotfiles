@@ -27,6 +27,7 @@ Coverband
 cronworkflow
 custhelp
 dartsass
+dataloading
 datetime
 delegators
 Deleteable
@@ -131,12 +132,14 @@ rtech
 rubygems
 rubyzip
 Sagawa
+SAVEPOINT
 selectpicker
 sendgrid
 serviceaccount
 SIDEKIQ
 sjis
 spbs
+standardrb
 statsd
 statusline
 stylesheet
@@ -151,6 +154,7 @@ testid
 testmail
 testtest
 thead
+tmpfs
 typeof
 UNDELIVERY
 Unsandboxed
