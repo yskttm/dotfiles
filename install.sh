@@ -51,7 +51,6 @@ link_dotfile "$DOTFILES_DIR/claude/hooks"                    "$HOME/.claude/hook
 
 # Codex
 link_dotfile "$DOTFILES_DIR/agents/AGENTS.md"                "$HOME/.codex/AGENTS.md"
-link_dotfile "$DOTFILES_DIR/codex/config.toml"               "$HOME/.codex/config.toml"
 
 # 各 Agents(Codex, Cursor, etc.)
 link_dotfile "$DOTFILES_DIR/agents/skills"                   "$HOME/.agents/skills"
