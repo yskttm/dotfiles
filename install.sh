@@ -40,19 +40,21 @@ link_dotfile "$DOTFILES_DIR/.config/karabiner/karabiner.json" "$HOME/.config/kar
 # ~/.cspell/ 配下
 link_dotfile "$DOTFILES_DIR/.cspell/custom-dictionary.txt" "$HOME/.cspell/custom-dictionary.txt"
 
+# AI エージェント設定: 指示ファイルと skills は agents/ 配下を正とし、各ツールの探索場所へ symlink する
+
 # Claude Code
 link_dotfile "$DOTFILES_DIR/agents/AGENTS.md"                "$HOME/.claude/CLAUDE.md"
+link_dotfile "$DOTFILES_DIR/agents/skills"                   "$HOME/.claude/skills"
 link_dotfile "$DOTFILES_DIR/claude/settings.json"            "$HOME/.claude/settings.json"
 link_dotfile "$DOTFILES_DIR/claude/statusline-command.sh"    "$HOME/.claude/statusline-command.sh"
 link_dotfile "$DOTFILES_DIR/claude/hooks"                    "$HOME/.claude/hooks"
-link_dotfile "$DOTFILES_DIR/agents/skills"                   "$HOME/.claude/skills"
 
 # Codex
-link_dotfile "$DOTFILES_DIR/agents/AGENTS.md" "$HOME/.codex/AGENTS.md"
-link_dotfile "$DOTFILES_DIR/codex/config.toml" "$HOME/.codex/config.toml"
-# Codex は ~/.codex/skills も読むが、あちらは Codex 本体が .system/ を書き込む実ディレクトリのため、
-# クロスツール標準（Cursor なども読む）の ~/.agents/skills に symlink する
-link_dotfile "$DOTFILES_DIR/agents/skills" "$HOME/.agents/skills"
+link_dotfile "$DOTFILES_DIR/agents/AGENTS.md"                "$HOME/.codex/AGENTS.md"
+link_dotfile "$DOTFILES_DIR/codex/config.toml"               "$HOME/.codex/config.toml"
+
+# 各 Agents(Codex, Cursor, etc.)
+link_dotfile "$DOTFILES_DIR/agents/skills"                   "$HOME/.agents/skills"
 
 # Colima
 link_dotfile "$DOTFILES_DIR/colima/default/colima.yaml" "$HOME/.colima/default/colima.yaml"
