@@ -40,9 +40,6 @@ link_dotfile "$DOTFILES_DIR/.config/karabiner/karabiner.json" "$HOME/.config/kar
 # ~/.cspell/ 配下
 link_dotfile "$DOTFILES_DIR/.cspell/custom-dictionary.txt" "$HOME/.cspell/custom-dictionary.txt"
 
-# エージェント共通設定（各 Agent で共有。agents/ 配下が正）
-link_dotfile "$DOTFILES_DIR/agents/skills" "$HOME/.agents/skills"
-
 # Claude Code
 link_dotfile "$DOTFILES_DIR/agents/AGENTS.md"                "$HOME/.claude/CLAUDE.md"
 link_dotfile "$DOTFILES_DIR/claude/settings.json"            "$HOME/.claude/settings.json"
@@ -53,6 +50,10 @@ link_dotfile "$DOTFILES_DIR/agents/skills"                   "$HOME/.claude/skil
 # Codex
 link_dotfile "$DOTFILES_DIR/agents/AGENTS.md" "$HOME/.codex/AGENTS.md"
 link_dotfile "$DOTFILES_DIR/codex/config.toml" "$HOME/.codex/config.toml"
+# ~/.codex/skills は Codex 本体が .system/ を書き込む実ディレクトリのため、丸ごとではなく skill 単位で symlink する
+for skill in "$DOTFILES_DIR"/agents/skills/*/; do
+  link_dotfile "${skill%/}" "$HOME/.codex/skills/$(basename "$skill")"
+done
 
 # Colima
 link_dotfile "$DOTFILES_DIR/colima/default/colima.yaml" "$HOME/.colima/default/colima.yaml"
