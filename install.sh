@@ -40,11 +40,15 @@ link_dotfile "$DOTFILES_DIR/.config/karabiner/karabiner.json" "$HOME/.config/kar
 # ~/.cspell/ 配下
 link_dotfile "$DOTFILES_DIR/.cspell/custom-dictionary.txt" "$HOME/.cspell/custom-dictionary.txt"
 
+# エージェント共通設定（Claude Code / Codex で共有。agents/ 配下が正）
+link_dotfile "$DOTFILES_DIR/agents/AGENTS.md" "$HOME/.codex/AGENTS.md"
+link_dotfile "$DOTFILES_DIR/agents/skills"    "$HOME/.agents/skills"
+
 # Claude Code
 link_dotfile "$DOTFILES_DIR/claude/CLAUDE.md"                "$HOME/.claude/CLAUDE.md"
 link_dotfile "$DOTFILES_DIR/claude/settings.json"            "$HOME/.claude/settings.json"
 link_dotfile "$DOTFILES_DIR/claude/statusline-command.sh"    "$HOME/.claude/statusline-command.sh"
-link_dotfile "$DOTFILES_DIR/claude/skills"                   "$HOME/.claude/skills"
+link_dotfile "$DOTFILES_DIR/agents/skills"                   "$HOME/.claude/skills"
 link_dotfile "$DOTFILES_DIR/claude/hooks"                    "$HOME/.claude/hooks"
 
 # Codex

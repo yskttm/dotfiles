@@ -1,4 +1,5 @@
 ---
+name: update-main-branch
 description: メインブランチに切り替えて最新化する
 ---
 
