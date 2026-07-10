@@ -40,8 +40,6 @@ link_dotfile "$DOTFILES_DIR/.config/karabiner/karabiner.json" "$HOME/.config/kar
 # ~/.cspell/ 配下
 link_dotfile "$DOTFILES_DIR/.cspell/custom-dictionary.txt" "$HOME/.cspell/custom-dictionary.txt"
 
-# AI エージェント設定: 指示ファイルと skills は agents/ 配下を正とし、各ツールの探索場所へ symlink する
-
 # Claude Code
 link_dotfile "$DOTFILES_DIR/agents/AGENTS.md"                "$HOME/.claude/CLAUDE.md"
 link_dotfile "$DOTFILES_DIR/agents/skills"                   "$HOME/.claude/skills"
