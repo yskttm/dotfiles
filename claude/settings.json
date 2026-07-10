@@ -100,7 +100,9 @@
     "skill-creator@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
-    "warp@claude-code-warp": true
+    "warp@claude-code-warp": true,
+    "superpowers@claude-plugins-official": true,
+    "github@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
