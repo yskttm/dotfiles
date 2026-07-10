@@ -41,14 +41,17 @@ link_dotfile "$DOTFILES_DIR/.config/karabiner/karabiner.json" "$HOME/.config/kar
 link_dotfile "$DOTFILES_DIR/.cspell/custom-dictionary.txt" "$HOME/.cspell/custom-dictionary.txt"
 
 # Claude Code
-link_dotfile "$DOTFILES_DIR/claude/CLAUDE.md"                "$HOME/.claude/CLAUDE.md"
+link_dotfile "$DOTFILES_DIR/agents/AGENTS.md"                "$HOME/.claude/CLAUDE.md"
+link_dotfile "$DOTFILES_DIR/agents/skills"                   "$HOME/.claude/skills"
 link_dotfile "$DOTFILES_DIR/claude/settings.json"            "$HOME/.claude/settings.json"
 link_dotfile "$DOTFILES_DIR/claude/statusline-command.sh"    "$HOME/.claude/statusline-command.sh"
-link_dotfile "$DOTFILES_DIR/claude/skills"                   "$HOME/.claude/skills"
 link_dotfile "$DOTFILES_DIR/claude/hooks"                    "$HOME/.claude/hooks"
 
 # Codex
-link_dotfile "$DOTFILES_DIR/codex/config.toml" "$HOME/.codex/config.toml"
+link_dotfile "$DOTFILES_DIR/agents/AGENTS.md"                "$HOME/.codex/AGENTS.md"
+
+# 各 Agents(Codex, Cursor, etc.)
+link_dotfile "$DOTFILES_DIR/agents/skills"                   "$HOME/.agents/skills"
 
 # Colima
 link_dotfile "$DOTFILES_DIR/colima/default/colima.yaml" "$HOME/.colima/default/colima.yaml"
