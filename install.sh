@@ -50,10 +50,9 @@ link_dotfile "$DOTFILES_DIR/agents/skills"                   "$HOME/.claude/skil
 # Codex
 link_dotfile "$DOTFILES_DIR/agents/AGENTS.md" "$HOME/.codex/AGENTS.md"
 link_dotfile "$DOTFILES_DIR/codex/config.toml" "$HOME/.codex/config.toml"
-# ~/.codex/skills は Codex 本体が .system/ を書き込む実ディレクトリのため、丸ごとではなく skill 単位で symlink する
-for skill in "$DOTFILES_DIR"/agents/skills/*/; do
-  link_dotfile "${skill%/}" "$HOME/.codex/skills/$(basename "$skill")"
-done
+# Codex は ~/.codex/skills も読むが、あちらは Codex 本体が .system/ を書き込む実ディレクトリのため、
+# クロスツール標準（Cursor なども読む）の ~/.agents/skills に symlink する
+link_dotfile "$DOTFILES_DIR/agents/skills" "$HOME/.agents/skills"
 
 # Colima
 link_dotfile "$DOTFILES_DIR/colima/default/colima.yaml" "$HOME/.colima/default/colima.yaml"
