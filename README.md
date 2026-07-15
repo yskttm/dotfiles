@@ -18,6 +18,11 @@ cd ~/dotfiles
 
 ## マニュアル運用
 
+### Kanary
+
+- <https://kanary.download/ja> から直接ダウンロードしてインストール（Homebrew・Mac App Store 未対応）
+- 設定は少ないため手動で再設定する（⌘ キー単体押しでの英数・かな切り替えに使用）
+
 ### Raycast
 
 - Raycast の設定は手動で export/import
