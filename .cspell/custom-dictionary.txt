@@ -101,6 +101,7 @@ NOPASSWD
 noscript
 novalidate
 nvmrc
+ollama
 oneshot
 openapi
 optimizely
