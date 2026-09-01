@@ -13,14 +13,16 @@
   2. ファイルを修正/作成/削除する
   3. 適度な単位で commit する
   4. ユーザに修正したファイル一覧を提示して、push してよいか確認をとる
-  5. push して OK ならば、push して PR を作成する(PR Description は日本語)
+  5. push して OK ならば、branch を push し、`gh pr create --draft` で Draft PR を作成する
   6. PR の URL を提示する
 - main への直接コミットは行わない。
 - commit
   - メッセージは英語
   - Conventional Commits を採用
 - PR
-  - Description は日本語
+  - Title は英語の Conventional Commits 形式にする
+  - Description は日本語で記述し、「概要」「変更内容」「検証結果」を含める
+  - branch の push 後は PR の作成をユーザに委ねず、Title と Description を指定して Draft PR を作成する
 
 ## 実装スタイル
 
