@@ -76,5 +76,10 @@ echo ""
 echo "brew bundle install を実行しています..."
 brew bundle install --file="$DOTFILES_DIR/Brewfile"
 
+# mise で言語ランタイムとツールをインストール
+echo ""
+echo "mise でツールをインストールしています..."
+mise install
+
 echo ""
 echo "セットアップ完了！"
