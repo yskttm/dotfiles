@@ -149,6 +149,7 @@
   },
   "advisorModel": "opus",
   "showThinkingSummaries": true,
+  "theme": "auto",
   "autoScrollEnabled": true,
   "skipAutoPermissionPrompt": true
 }
