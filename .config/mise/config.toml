@@ -6,9 +6,17 @@ rust = "latest"
 go = "latest"
 ruby = "latest"
 python = "latest"
+uv = "latest"
 aube = "latest"
 ni = "latest"
 
 [settings]
-idiomatic_version_file_enable_tools = ["node", "ruby"]
+idiomatic_version_file_enable_tools = [
+  "node",
+  "ruby",
+  "python",
+  "pnpm",
+  "yarn",
+  "npm",
+]
 trusted_config_paths = ["~/dotfiles"]
