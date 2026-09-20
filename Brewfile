@@ -1,3 +1,4 @@
+brew "actionlint"
 brew "act"
 brew "awscli"
 brew "biome"
