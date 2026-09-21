@@ -18,19 +18,19 @@ version: 4
 
 # AWS Messaging & Streaming Services
 
-     
+
 When answering AWS messaging and streaming questions, verify specific numbers, versions, limits, and behavioral details from service-specific skills or official AWS documentation. When uncertain, search skills or docs rather than guessing. Fabricated configuration options or incorrect version numbers are worse than admitting uncertainty.
 
 When a question asks about recommended configurations (CloudWatch alarm settings, thresholds, missing data treatment), search for the service-specific skills or documentation rather than relying on general best practices.
 
 ## Overview
 
-Domain expertise for choosing and using AWS services that move data between producers and consumers. 
-This skill covers two fundamental patterns — **messaging** and **streaming** — and the AWS services that implement each. 
+Domain expertise for choosing and using AWS services that move data between producers and consumers.
+This skill covers two fundamental patterns — **messaging** and **streaming** — and the AWS services that implement each.
 It also marks the boundary with **customer communication** — messages delivered to people rather than to application components — and routes those questions to the skill or AWS documentation that owns each channel (see Customer Communications (Application-to-Person)).
 Use this skill to decide which pattern fits a workload, select the right service, and understand how services integrate with each other.
 
-For specific guidance on individual AWS services, see reference files or service-specific Skills. 
+For specific guidance on individual AWS services, see reference files or service-specific Skills.
 
 ## Streaming and Messaging
 
@@ -85,7 +85,7 @@ Streaming enables **ordered, durable, high-throughput continuous data flow**. Pr
 
 ### Messaging Services
 
-These services are generally used for messaging workloads. 
+These services are generally used for messaging workloads.
 Sometimes streaming services (Kinesis Data Streams, Managed Streaming for Apache Kafka) are also used for messaging workloads, depending on exact use case and requirements.
 
 | Service | Best For | Key Differentiator |
@@ -97,7 +97,7 @@ Sometimes streaming services (Kinesis Data Streams, Managed Streaming for Apache
 
 ### Streaming Services
 
-These services are generally used for streaming workloads. 
+These services are generally used for streaming workloads.
 
 | Service | Best For | Key Differentiator |
 |---|---|---|

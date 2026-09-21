@@ -92,9 +92,9 @@ Refer to the latest AWS documentation on Bedrock InvokeModel for current request
 ## Cross-Region Inference
 
 Model ID format determines how requests are routed:
-- In-region (base model ID): e.g., `anthropic.claude-3-haiku-20240307-v1:0` — single-region invocation, only for models with In-Region availability in your region             
+- In-region (base model ID): e.g., `anthropic.claude-3-haiku-20240307-v1:0` — single-region invocation, only for models with In-Region availability in your region
 - Geo cross-region (inference profile): e.g., `us.anthropic.claude-sonnet-4-6` — routes within a geography (US, EU, APAC). Required for many newer models, even for standard on-demand invocation
-- Global cross-region (inference profile): e.g., `global.anthropic.claude-sonnet-4-6` — routes to any commercial region where the model is available, for maximum throughput   
+- Global cross-region (inference profile): e.g., `global.anthropic.claude-sonnet-4-6` — routes to any commercial region where the model is available, for maximum throughput
 - Provisioned throughput: ARN format `arn:aws:bedrock:<region>:<account-id>:provisioned-model/<id>`
 
 Common errors from using the wrong ID format:

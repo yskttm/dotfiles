@@ -378,4 +378,3 @@ The config name uses **underscores, not hyphens**. `status` (ACTIVE / CREATING /
 ```
 
 Wait for the user to pick an action before proceeding.
-

@@ -257,4 +257,3 @@ ADOT Collector 0.34.0+ (X-Ray Exporter 0.86.0+) is required to accept W3C-format
 6. **StepFunctions tracing overrides Lambda** — When StepFunction tracing is enabled, downstream Lambda tracing is always enabled regardless of Lambda's own config.
 
 7. **Cross-account tracing** — Trace IDs propagate naturally across accounts, but unified cross-account viewing requires CloudWatch Observability Access Manager (OAM) setup with monitoring/source account links.
-

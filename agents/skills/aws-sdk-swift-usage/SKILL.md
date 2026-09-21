@@ -29,7 +29,7 @@ NEVER use `S3ClientConfiguration` or `DynamoDBClientConfiguration` - these are D
 ALWAYS use the struct-based config types:
 
 - `S3Client.S3ClientConfig` (not S3ClientConfiguration)
-- `DynamoDBClient.DynamoDBClientConfig` (not DynamoDBClientConfiguration)  
+- `DynamoDBClient.DynamoDBClientConfig` (not DynamoDBClientConfiguration)
 - `STSClient.STSClientConfig` (not STSClientConfiguration)
 
 Config parameters MUST be in declaration order. Region is ALWAYS required when creating a config. Check the service client source for exact order.

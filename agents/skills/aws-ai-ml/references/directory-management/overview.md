@@ -26,7 +26,7 @@ When working with the agent, all generated files are organized under an project 
 
 ```
 <project-name>/
-├── specs/  
+├── specs/
 │   ├── PLAN.md             # Your customization plan
 ├── scripts/                # Generated Python scripts
 │   ├── <project-name>_transform_fn.py
