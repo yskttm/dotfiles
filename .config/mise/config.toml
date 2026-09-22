@@ -9,6 +9,14 @@ python = "latest"
 uv = "latest"
 aube = "latest"
 ni = "latest"
+pnpm = "latest"
+yarn = "latest"
+biome = "latest"
+actionlint = "latest"
+act = "latest"
+kubectl = "latest"
+k9s = "latest"
+stern = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = [
