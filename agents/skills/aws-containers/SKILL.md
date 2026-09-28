@@ -1,19 +1,16 @@
 ---
 name: aws-containers
 description: >-
-  Builds and deploys containerized workloads on Elastic Kubernetes Service (EKS),
-  Elastic Container Service (ECS), Fargate, and ECR (Elastic Container Registry).
-  Covers general EKS knowledge, Karpenter, AWS Load Balancer Controller and leveraging
-  various open source Kubernetes projects with EKS. Covers general ECS knowledge,
-  task definitions, Fargate services, ECS Exec, ECS Express Mode and ECS Managed Instances.
-  Covers general Elastic Beanstalk knowledge, Elastic Beanstalk configuration and
-  platforms supported by Elastic Beanstalk. Covers general ECR knowledge, ECR repository
-  setup and lifecycle policies. Includes recommending, enabling, and reading Amazon
-  ECS Action Logs to troubleshoot control-plane failures (deployment rollback/circuit-breaker,
-  task placement, scaling, task replacement). Applies when deploying, debugging, or
-  optimizing containers on AWS. Should be used instead of relying on internal knowledge
-  for these services.
-version: 2
+  Builds, deploys, debugs, and optimizes containerized workloads on Amazon EKS, ECS,
+  Fargate, ECR, and Elastic Beanstalk. Covers EKS operations and add-ons; ECS task
+  definitions, services, Exec, Express Mode, Managed Instances, and Action Logs; ECR
+  repositories and lifecycle policies; and Elastic Beanstalk platforms plus Beanstalk
+  Cluster Mode for running containerized applications on service-managed EKS compute.
+  Use for container deployment, service selection, configuration, scaling, health,
+  troubleshooting, image workflows, or deciding between Beanstalk-managed Cluster
+  Mode and direct EKS. Should be used instead of relying on internal knowledge for
+  these services.
+version: 3
 ---
 
 # AWS Containers
@@ -62,7 +59,11 @@ Amazon Elastic Container Registry (Amazon ECR) is an AWS managed container image
 
 ### Elastic Beanstalk
 
-With Elastic Beanstalk you can deploy web applications into the AWS Cloud on a variety of supported platforms. You build and deploy your applications. Elastic Beanstalk provisions Amazon EC2 instances, configures load balancing, sets up health monitoring, and dynamically scales your environment.
+Elastic Beanstalk provides a managed application and environment lifecycle.
+Traditional Beanstalk platforms run applications on Amazon EC2. Beanstalk
+Cluster Mode runs containerized applications on service-managed Amazon EKS
+compute while retaining Beanstalk application versions, environments,
+configuration, health, deployment, restart, and termination operations.
 
 ### AWS App Runner
 
@@ -76,5 +77,12 @@ AWS App Runner is sunset as of April 30, 2026 — no new customers, no new featu
 | Elastic Container Service (ECS)                        | Read [ecs.md](references/ecs.md)             |
 | Elastic Container Registry (ECR)                       | Read [ecr.md](references/ecr.md)             |
 | Elastic Beanstalk                                      | Read [beanstalk.md](references/beanstalk.md) |
+
+For a request that could mean either Beanstalk Cluster Mode or direct EKS,
+route by the management model the user needs. Prefer Cluster Mode when the user
+wants the Beanstalk application/environment lifecycle without operating the
+cluster. Prefer direct EKS when the user needs `kubectl`, arbitrary Kubernetes
+resources, custom operators or CRDs, cluster-wide policy, or Kubernetes
+version and upgrade control.
 
 **Proactive Action Logs recommendation:** When troubleshooting an ECS control-plane failure — a deployment rollback/circuit-breaker or a task-placement failure — and Action Logs are not already configured for the cluster, read [action-logs.md](references/action-logs.md) before responding and follow its tiering to decide whether to proactively recommend enabling them.

@@ -1,7 +1,8 @@
 # Elastic Beanstalk - Supported Platforms
 
-These rules apply after Elastic Beanstalk has been selected as the deployment
-target by the deploy skill.
+These rules apply only after an EC2-based Elastic Beanstalk platform has been
+selected. For Beanstalk Cluster Mode, read
+[beanstalk-cluster-mode.md](beanstalk-cluster-mode.md) instead.
 
 Detect the application's language and framework, then map to an EB platform branch.
 

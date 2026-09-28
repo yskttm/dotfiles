@@ -8,7 +8,7 @@ description: >-
   topics with validated, version-specific patterns that prevent common mistakes. Triggers
   when user mentions AWS Blocks; project has aws-blocks/ directory; code imports @aws-blocks
   packages.
-version: 1
+version: 2
 ---
 
 # AWS Blocks Application Development
@@ -24,6 +24,40 @@ AWS Blocks is an Infrastructure-from-Code framework where Building Blocks bundle
 - Frontend imports are fully typed — no client generation needed
 - All Building Blocks work locally without AWS (mocks persist to `.bb-data/`)
 - Deploy ephemeral, individual testing environments with `npm run sandbox` and long-lived environments with `npm run deploy` using least-privilege credentials
+
+## Framework model (how a Blocks app fits together)
+
+These are the load-bearing facts about how a Blocks app is wired. They prevent the most common agent mistakes; none are guessable from general React/Node/AWS knowledge.
+
+- **Backend defines the API; the frontend imports it, fully typed.** You write methods in `aws-blocks/index.ts` and call them from the frontend:
+
+  ```ts
+  import { api, authApi } from 'aws-blocks';
+  const todos = await api.listTodos();          // typed, awaited call
+  ```
+
+  At runtime that import resolves to an auto-generated **client proxy** (`aws-blocks/client.js`), not the server module — the types come from your backend, the transport is injected. **The JSON-RPC transport is invisible: never build request payloads by hand or `fetch()` the API directly** (only for one-off connectivity troubleshooting). Just import the namespace and call the method.
+- **Pitfall:** do not `import ... from '../aws-blocks/index.ts'` in a script/test to call the API — that gives you the *server* definition object, which behaves differently from the client. Import from `'aws-blocks'` (the package name).
+
+### Methods are namespaced
+
+A call is always `namespace.method(...)` — e.g. `api.createTodo(title)`, `api.listTodos()`. The namespace is the string you passed as the **second** argument to `new ApiNamespace(scope, '<name>', …)`. A bare method name with no namespace will not resolve. (Auth is the same shape but pre-built: `authApi` exposes `getAuthState`/`setAuthState` — sign-up is `authApi.setAuthState({ action: 'signUp', … })`, not a bare `signUp`.)
+
+### Auth is a Building Block, not hand-rolled
+
+Get the current user inside a method with `await auth.requireAuth(context)` (throws if unauthenticated). On the frontend, mount the ready-made UI from `@aws-blocks/blocks/ui`:
+
+```ts
+import { Authenticator, onAuthChange } from '@aws-blocks/blocks/ui';
+authContainer.appendChild(Authenticator(authApi));
+onAuthChange(authApi, (user) => { /* re-render for signed-in/out */ });
+```
+
+Sign-up auto-confirms (no email round-trip) when the auth block is constructed without a `codeDelivery` callback. **This is a local/dev convenience only — it accepts an account without verifying ownership of the email.** For production, pass a `codeDelivery` callback so sign-up requires email verification.
+
+### How the deployed frontend reaches the backend
+
+The deployed browser fetches `/.blocks-sandbox/config.json` at runtime to discover the API base (`{"apiUrl":"/aws-blocks/api"}`), which CloudFront proxies same-origin to API Gateway — no CORS to configure, no endpoint to hardcode. The "is the frontend wired to the backend?" check is `curl <cloudfront-url>/.blocks-sandbox/config.json`, not `/config.json` (which returns an S3 `NoSuchKey`). This is a public-facing surface: see **Security Considerations** below for the CloudFront security headers, `requireAuth` on mutating methods, explicit `CORS_ALLOWED_ORIGINS`, and the WAF / API Gateway throttling to add before exposing it in production.
 
 ## Scaffolding a New Project
 
