@@ -58,6 +58,7 @@ gunicorn
 healthcheck
 healthz
 hmac
+hostnames
 ibsnet
 iframe
 Includer
@@ -137,6 +138,7 @@ Sagawa
 SAVEPOINT
 selectpicker
 sendgrid
+serverlessv
 serviceaccount
 SIDEKIQ
 sjis
@@ -150,6 +152,7 @@ syncer
 tabindex
 tableplus
 tarako
+targetgroup
 targetter
 tbody
 testid
@@ -157,6 +160,7 @@ testmail
 testtest
 thead
 tmpfs
+toset
 typeof
 UNDELIVERY
 Unsandboxed
