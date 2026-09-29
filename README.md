@@ -27,7 +27,7 @@ codex plugin add aws-core@agent-toolkit-for-aws
 claude plugin install aws-core@claude-plugins-official --scope user
 ```
 
-AWS MCP の認証に使う profile は、各端末の Codex・Claude Code の設定で別途指定してください。
+Claude Code は `claude/settings.json` の `AWS_PROFILE` で `personal` profile を指定し、plugin 付属の AWS MCP を使用します。Codex は既存の AWS MCP 接続で `personal` profile を指定し、plugin 付属の MCP を無効化しています。Codex の MCP 設定はこの repository では管理していません。
 
 ## マニュアル運用
 
