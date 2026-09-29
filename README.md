@@ -17,6 +17,18 @@ cd ~/dotfiles
 3. `Brewfile` をもとにアプリケーションをインストール
 4. mise で言語ランタイムとツールをインストール
 
+## Agent Toolkit for AWS
+
+AWS の skills は Codex と Claude Code の `aws-core` plugin で管理します。`install.sh` は plugin をインストールしないため、各ツールで次のコマンドを実行してください。
+
+```bash
+codex plugin marketplace add aws/agent-toolkit-for-aws
+codex plugin add aws-core@agent-toolkit-for-aws
+claude plugin install aws-core@claude-plugins-official --scope user
+```
+
+AWS MCP の認証に使う profile は、各端末の Codex・Claude Code の設定で別途指定してください。
+
 ## マニュアル運用
 
 ### Kanary
