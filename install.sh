@@ -55,9 +55,6 @@ link_dotfile "$DOTFILES_DIR/agents/skills"                   "$HOME/.agents/skil
 # Colima
 link_dotfile "$DOTFILES_DIR/colima/default/colima.yaml" "$HOME/.colima/default/colima.yaml"
 
-# Docker
-link_dotfile "$DOTFILES_DIR/docker/config.json" "$HOME/.docker/config.json"
-
 
 echo ""
 echo "シンボリックリンクの作成が完了しました。"
@@ -75,6 +72,8 @@ fi
 echo ""
 echo "brew bundle install を実行しています..."
 brew bundle install --file="$DOTFILES_DIR/Brewfile"
+
+bash "$DOTFILES_DIR/setup-docker.sh" "$DOTFILES_DIR" "$(brew --prefix)"
 
 # mise で言語ランタイムとツールをインストール
 echo ""

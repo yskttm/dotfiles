@@ -1,5 +1,7 @@
 .DS_Store
 .dotfiles_backup/
+.backup/
+docker/config.json
 
 # SSH 秘密鍵
 id_rsa*
