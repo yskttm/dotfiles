@@ -55,9 +55,6 @@ link_dotfile "$DOTFILES_DIR/agents/skills"                   "$HOME/.agents/skil
 # Colima
 link_dotfile "$DOTFILES_DIR/colima/default/colima.yaml" "$HOME/.colima/default/colima.yaml"
 
-# Docker
-link_dotfile "$DOTFILES_DIR/docker/config.json" "$HOME/.docker/config.json"
-
 
 echo ""
 echo "シンボリックリンクの作成が完了しました。"
@@ -75,6 +72,13 @@ fi
 echo ""
 echo "brew bundle install を実行しています..."
 brew bundle install --file="$DOTFILES_DIR/Brewfile"
+
+# docker-compose のシンボリックリンクを作成
+COMPOSE_LINK="$HOME/.docker/cli-plugins/docker-compose"
+if [ ! -e "$COMPOSE_LINK" ] && [ ! -L "$COMPOSE_LINK" ]; then
+  mkdir -p "$(dirname "$COMPOSE_LINK")"
+  ln -s "$(brew --prefix)/lib/docker/cli-plugins/docker-compose" "$COMPOSE_LINK"
+fi
 
 # mise で言語ランタイムとツールをインストール
 echo ""
