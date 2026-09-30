@@ -73,7 +73,12 @@ echo ""
 echo "brew bundle install を実行しています..."
 brew bundle install --file="$DOTFILES_DIR/Brewfile"
 
-bash "$DOTFILES_DIR/setup-docker.sh" "$DOTFILES_DIR" "$(brew --prefix)"
+# 他の方法で導入済みの plugin は上書きしない。
+COMPOSE_LINK="$HOME/.docker/cli-plugins/docker-compose"
+if [ ! -e "$COMPOSE_LINK" ] && [ ! -L "$COMPOSE_LINK" ]; then
+  mkdir -p "$(dirname "$COMPOSE_LINK")"
+  ln -s "$(brew --prefix)/lib/docker/cli-plugins/docker-compose" "$COMPOSE_LINK"
+fi
 
 # mise で言語ランタイムとツールをインストール
 echo ""
