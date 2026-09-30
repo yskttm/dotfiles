@@ -73,7 +73,7 @@ echo ""
 echo "brew bundle install を実行しています..."
 brew bundle install --file="$DOTFILES_DIR/Brewfile"
 
-# 他の方法で導入済みの plugin は上書きしない。
+# docker-compose のシンボリックリンクを作成
 COMPOSE_LINK="$HOME/.docker/cli-plugins/docker-compose"
 if [ ! -e "$COMPOSE_LINK" ] && [ ! -L "$COMPOSE_LINK" ]; then
   mkdir -p "$(dirname "$COMPOSE_LINK")"
