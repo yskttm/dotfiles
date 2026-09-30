@@ -25,8 +25,7 @@ Docker CLI、Compose、Colima は Homebrew でインストールします。Comp
 既存の Compose plugin がある場合は上書きしません。
 
 `~/.docker/config.json` は認証情報を含むため、Git 管理せず各端末で管理します。
-以前の dotfiles 向けシンボリックリンクが残っている場合は、セットアップ時に内容を保持した通常ファイルへ移行します。
-リンク先が削除済みの場合は、リンクのみを削除します。
+以前の dotfiles 向けシンボリックリンクが残っている端末では、更新前にリンク先の内容を端末内の通常ファイルへコピーし、リンクを置き換えてください。
 
 セットアップ後、次のコマンドで起動と接続を確認できます。
 
@@ -40,7 +39,7 @@ docker compose version
 Colima の設定は `colima/default/colima.yaml` で管理します。
 `Brewfile` の `restart_service: :changed` により、Colima のインストール・更新時にはサービスを起動または再起動します。
 
-Docker セットアップのテストは `python3 setup-docker.test.py` で実行できます。
+Compose plugin のセットアップのテストは `python3 install.test.py` で実行できます。
 
 ## マニュアル運用
 
