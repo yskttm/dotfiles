@@ -1,6 +1,7 @@
 export LANG=ja_JP.UTF-8
 export EDITOR="code"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
 autoload -Uz colors
 colors
