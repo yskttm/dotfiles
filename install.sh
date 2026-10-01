@@ -52,9 +52,6 @@ link_dotfile "$DOTFILES_DIR/agents/AGENTS.md"                "$HOME/.codex/AGENT
 # 各 Agents(Codex, Cursor, etc.)
 link_dotfile "$DOTFILES_DIR/agents/skills"                   "$HOME/.agents/skills"
 
-# Colima
-link_dotfile "$DOTFILES_DIR/colima/default/colima.yaml" "$HOME/.colima/default/colima.yaml"
-
 
 echo ""
 echo "シンボリックリンクの作成が完了しました。"
