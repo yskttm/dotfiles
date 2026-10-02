@@ -1,3 +1,4 @@
+brew "aqua"
 brew "awscli"
 brew "colima", restart_service: :changed
 brew "docker"
