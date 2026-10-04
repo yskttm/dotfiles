@@ -67,9 +67,8 @@
       "Bash(git stash *)",
       "Bash(npm ci *)"
     ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "auto"
   },
-  "model": "sonnet",
   "hooks": {
     "PreToolUse": [
       {
@@ -151,6 +150,5 @@
   "advisorModel": "opus",
   "showThinkingSummaries": true,
   "theme": "auto",
-  "autoScrollEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "autoScrollEnabled": true
 }
