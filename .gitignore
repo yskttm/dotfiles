@@ -25,3 +25,6 @@ application_default_credentials.json
 secrets/
 secret/
 credentials/
+
+# アプリが自動同期するスキル
+/agents/skills/synced/
