@@ -5,25 +5,14 @@
 input=$(cat)
 
 # Core info
-version=$(echo "$input" | jq -r '.version // empty')
 model=$(echo "$input" | jq -r '.model.display_name // empty')
 cwd=$(echo "$input" | jq -r '.cwd // empty')
-session_name=$(echo "$input" | jq -r '.session_name // empty')
 
 # Context window
 used_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
-remaining_pct=$(echo "$input" | jq -r '.context_window.remaining_percentage // empty')
-ctx_size=$(echo "$input" | jq -r '.context_window.context_window_size // empty')
-total_in=$(echo "$input" | jq -r '.context_window.total_input_tokens // empty')
-total_out=$(echo "$input" | jq -r '.context_window.total_output_tokens // empty')
-cur_in=$(echo "$input" | jq -r '.context_window.current_usage.input_tokens // empty')
-cur_out=$(echo "$input" | jq -r '.context_window.current_usage.output_tokens // empty')
-cache_write=$(echo "$input" | jq -r '.context_window.current_usage.cache_creation_input_tokens // empty')
-cache_read=$(echo "$input" | jq -r '.context_window.current_usage.cache_read_input_tokens // empty')
 
 # Rate limits
 five_h_pct=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
-# five_h_reset=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
 
 # Optional: vim mode, agent, worktree, output_style
 vim_mode=$(echo "$input" | jq -r '.vim.mode // empty')
@@ -50,7 +39,6 @@ git_worktree=$(echo "$input" | jq -r '.workspace.git_worktree // empty')
 RESET='\033[0m'
 BOLD='\033[1m'
 DIM='\033[2m'
-CYAN='\033[36m'
 GREEN='\033[32m'
 YELLOW='\033[33m'
 BLUE='\033[34m'
@@ -62,9 +50,6 @@ parts=()
 
 # Current time
 parts+=("$(printf "${MAGENTA}$(date +%H:%M)${RESET}")")
-
-# Version
-# [ -n "$version" ] && parts+=("$(printf "${DIM}v${version}${RESET}")")
 
 # Model
 [ -n "$model" ] && parts+=("$(printf "${WHITE}${BOLD}${model}${RESET}")")
@@ -96,9 +81,6 @@ if [ -n "$git_branch" ]; then
   parts+=("$git_str")
 fi
 
-# Session name
-# [ -n "$session_name" ] && parts+=("$(printf "${DIM}session:${session_name}${RESET}")")
-
 # Context window usage
 if [ -n "$used_pct" ]; then
   used_int=$(printf "%.0f" "$used_pct")
@@ -110,20 +92,6 @@ if [ -n "$used_pct" ]; then
   ctx_str="${color}ctx:${used_int}%%${RESET}"
   parts+=("$(printf "$ctx_str")")
 fi
-
-# Token counts (total cumulative)
-# if [ -n "$total_in" ] || [ -n "$total_out" ]; then
-#   tok_str="$(printf "${DIM}total-in:${total_in} out:${total_out}${RESET}")"
-#   parts+=("$tok_str")
-# fi
-
-# Current usage tokens
-# if [ -n "$cur_in" ] || [ -n "$cur_out" ]; then
-#   cur_str="$(printf "${DIM}last-in:${cur_in} out:${cur_out}${RESET}")"
-#   [ -n "$cache_write" ] && [ "$cache_write" != "0" ] && cur_str="${cur_str}$(printf "${DIM} cw:${cache_write}${RESET}")"
-#   [ -n "$cache_read" ]  && [ "$cache_read"  != "0" ] && cur_str="${cur_str}$(printf "${DIM} cr:${cache_read}${RESET}")"
-#   parts+=("$cur_str")
-# fi
 
 # Rate limits
 if [ -n "$five_h_pct" ]; then

@@ -39,27 +39,66 @@
     "deny": [
       "Bash(sudo *)",
       "Bash(git reset *)",
-      "Bash(git rebase *)",
       "Bash(git push --force *)",
       "Bash(git push --force-with-lease *)",
+      "Bash(git push -f *)",
+      "Bash(git push * -f)",
+      "Bash(git push * -f *)",
+      "Bash(git push * --force*)",
+      "Bash(git push * +*)",
       "Bash(rm -rf *)",
       "Bash(wget *)",
       "Bash(curl *)",
-      "Read(**/.env*)",
-      "Read(**/id_rsa*)",
-      "Read(**/id_ed25519*)",
-      "Read(**/*token*)",
-      "Read(**/*key*)",
-      "Read(**/*secret*)",
-      "Read(**/*credential*)",
-      "Read(**/*password*)",
-      "Edit(**/.env*)",
-      "Edit(**/*token*)",
-      "Edit(**/*key*)",
-      "Edit(**/*secret*)",
-      "Edit(**/*credential*)",
-      "Edit(**/*password*)",
-      "Edit(**/secrets/**)"
+      "Read(//**/.env*)",
+      "Read(//**/*credentials*.json)",
+      "Read(//**/*credentials*.yml)",
+      "Read(//**/*credentials*.yaml)",
+      "Read(//**/*secret*.json)",
+      "Read(//**/*secret*.yml)",
+      "Read(//**/*secret*.yaml)",
+      "Read(//**/*.secret)",
+      "Read(//**/service-account*.json)",
+      "Read(//**/*.pem)",
+      "Read(//**/*.key)",
+      "Read(//**/*.token)",
+      "Read(//**/*.p12)",
+      "Read(//**/*.pfx)",
+      "Read(//**/*.jks)",
+      "Read(//**/*.keystore)",
+      "Read(//**/id_rsa)",
+      "Read(//**/id_ed25519)",
+      "Read(//**/id_ecdsa)",
+      "Read(//**/.netrc)",
+      "Read(//**/config/*yml.enc*)",
+      "Read(//**/config/credentials/*yml.enc*)",
+      "Read(//**/.aws/**)",
+      "Read(//**/.ssh/**)",
+      "Read(//**/secrets/**)",
+      "Edit(//**/.env*)",
+      "Edit(//**/*credentials*.json)",
+      "Edit(//**/*credentials*.yml)",
+      "Edit(//**/*credentials*.yaml)",
+      "Edit(//**/*secret*.json)",
+      "Edit(//**/*secret*.yml)",
+      "Edit(//**/*secret*.yaml)",
+      "Edit(//**/*.secret)",
+      "Edit(//**/service-account*.json)",
+      "Edit(//**/*.pem)",
+      "Edit(//**/*.key)",
+      "Edit(//**/*.token)",
+      "Edit(//**/*.p12)",
+      "Edit(//**/*.pfx)",
+      "Edit(//**/*.jks)",
+      "Edit(//**/*.keystore)",
+      "Edit(//**/id_rsa)",
+      "Edit(//**/id_ed25519)",
+      "Edit(//**/id_ecdsa)",
+      "Edit(//**/.netrc)",
+      "Edit(//**/config/*yml.enc*)",
+      "Edit(//**/config/credentials/*yml.enc*)",
+      "Edit(//**/.aws/**)",
+      "Edit(//**/.ssh/**)",
+      "Edit(//**/secrets/**)"
     ],
     "ask": [
       "Bash(git push *)",
@@ -69,19 +108,6 @@
     ],
     "defaultMode": "auto"
   },
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash ~/.claude/hooks/log_bash.sh"
-          }
-        ]
-      }
-    ]
-  },
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
@@ -90,31 +116,24 @@
     "ruby-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
-    "code-review@claude-plugins-official": true,
+    "code-review@claude-plugins-official": false,
     "context7@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
-    "code-simplifier@claude-plugins-official": false,
     "playwright@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
-    "warp@claude-code-warp": true,
     "superpowers@claude-plugins-official": true,
     "github@claude-plugins-official": true,
-    "aws-core@claude-plugins-official": true
+    "aws-core@claude-plugins-official": true,
+    "warp@claude-code-warp": true
   },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
       "source": {
         "source": "github",
         "repo": "anthropics/claude-plugins-official"
-      }
-    },
-    "anthropic-agent-skills": {
-      "source": {
-        "source": "github",
-        "repo": "anthropics/skills"
       }
     },
     "claude-code-warp": {
