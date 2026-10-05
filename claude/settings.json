@@ -39,7 +39,6 @@
     "deny": [
       "Bash(sudo *)",
       "Bash(git reset *)",
-      "Bash(git rebase *)",
       "Bash(git push --force *)",
       "Bash(git push --force-with-lease *)",
       "Bash(rm -rf *)",
@@ -99,10 +98,10 @@
     "skill-creator@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
-    "warp@claude-code-warp": true,
     "superpowers@claude-plugins-official": true,
     "github@claude-plugins-official": true,
-    "aws-core@claude-plugins-official": true
+    "aws-core@claude-plugins-official": true,
+    "warp@claude-code-warp": true
   },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
