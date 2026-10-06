@@ -188,7 +188,9 @@ def read_codex_session(path: Path, start: dt.datetime, end: dt.datetime) -> dict
         item_type = item.get("type")
         if item_type == "UserMessage":
             t = codex_text(item)
-            if not t or t.lstrip("[").startswith(f"${SKILL_COMMAND}"):  # "$daily-log" or a "[$daily-log](...)" mention
+            invoked_self = any(isinstance(c, dict) and c.get("type") == "skill" and c.get("name") == SKILL_COMMAND
+                               for c in item.get("content") or [])
+            if not t or invoked_self or t.startswith(f"${SKILL_COMMAND}"):
                 continue
             prompts += 1
             line = f"USER: {t[:2000]}"

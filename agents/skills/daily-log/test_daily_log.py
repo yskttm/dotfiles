@@ -94,7 +94,10 @@ class GatherCodexTest(unittest.TestCase):
     def test_skips_session_that_only_runs_daily_log(self):
         self.codex_file(TODAY, "self", [
             codex_meta(at(TODAY, 18, 0), "self", str(self.cwd)),
-            codex_user(at(TODAY, 18, 1), "$daily-log"),
+            codex_item(at(TODAY, 18, 1), {"type": "UserMessage", "content": [
+                {"type": "text", "text": "$daily-log"},
+                {"type": "skill", "name": "daily-log", "path": "/x/daily-log/SKILL.md"},
+            ]}),
             codex_agent(at(TODAY, 18, 2), "送りました"),
         ])
         self.assertEqual(self.gather(), [])
