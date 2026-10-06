@@ -15,6 +15,7 @@ asctime
 asdf
 ast
 asyncio
+Authorable
 autify
 autocorrect
 autocorrection
@@ -90,6 +91,7 @@ EOSL
 esbuild
 eslint
 etag
+Expertable
 fargate
 fastapi
 filesize
@@ -100,6 +102,7 @@ gamification
 Gantt
 gemfile
 genai
+Generatable
 ghq
 googleauth
 googleworkspace
@@ -190,6 +193,7 @@ nodepool
 nofile
 NOPASSWD
 noscript
+Notifable
 novalidate
 nvmrc
 oauth
@@ -252,6 +256,7 @@ Sagawa
 sagemaker
 saml
 SAVEPOINT
+Sectionable
 selectpicker
 sendgrid
 serverlessv
