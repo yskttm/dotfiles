@@ -200,6 +200,7 @@ oauth
 oidc
 ollama
 oneshot
+openai
 openapi
 opensearch
 opentelemetry

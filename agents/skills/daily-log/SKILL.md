@@ -1,14 +1,16 @@
 ---
 name: daily-log
-description: 退勤時に手動で実行する。今日のClaude Codeセッションを要約し、Notionの「Claude Code ログ」DBに送る。
+description: 退勤時に手動で実行する。今日のClaude Code / Codexセッションを要約し、Notionの「AIログ」DBに送る。
 argument-hint: "[YYYY-MM-DD]（省略時は今日）"
 disable-model-invocation: true
 allowed-tools: Bash(python3 ~/.claude/skills/daily-log/daily_log.py:*), Read, Edit, Write, ToolSearch, mcp__claude_ai_Notion__notion-query-data-sources, mcp__claude_ai_Notion__notion-create-pages, mcp__claude_ai_Notion__notion-update-page
 ---
 
-# daily-log: 今日の Claude Code セッションを Notion に送る
+# daily-log: 今日の Claude Code / Codex セッションを Notion に送る
 
-ユーザーが退勤時に `/daily-log` で起動する。対象日は引数 `$ARGUMENTS`（空なら今日）。
+ユーザーが退勤時に起動する（Claude Code は `/daily-log`、Codex は `$daily-log`）。
+Claude Code と Codex のどちらから起動しても、両方のセッションをまとめて集める。
+対象日はユーザーが `YYYY-MM-DD` で指定したときだけ、下のコマンドの `[YYYY-MM-DD]` をその日付に置き換える（指定がなければ削って今日）。
 途中で確認は取らず、最後まで進めてから結果を報告する。
 
 ## 初回セットアップ
@@ -19,18 +21,21 @@ allowed-tools: Bash(python3 ~/.claude/skills/daily-log/daily_log.py:*), Read, Ed
 {"data_source_url": "collection://<Notion DB の data source ID>"}
 ```
 
+Notion DB には `ツール`（select: `Claude Code` / `Codex`）プロパティが必要。
+Codex から使うときは、Codex 側にも Notion MCP を接続しておく。
+
 ## 手順
 
 1. **集める**
    ```bash
-   python3 ~/.claude/skills/daily-log/daily_log.py collect $ARGUMENTS
+   python3 ~/.claude/skills/daily-log/daily_log.py collect [YYYY-MM-DD]
    ```
    出力に表示される `transcripts:`（.md）と `fill in:`（.json）のパスを控える。
    `sessions: 0` なら「今日のセッションは見つかりませんでした」と伝えて終了。
 
 2. **読む**
    `.md` を Read で読む。大きいときは offset/limit で分けて全部読む。
-   各セッションは `## [番号] リポジトリ (ブランチ) 開始–終了` で区切られている。
+   各セッションは `## [番号] ツール / リポジトリ (ブランチ) 開始–終了` で区切られている。
 
 3. **要約を書き込む**
    `.json` の各セッションの `title` と `summary` を埋める（Edit で書き換える。他のフィールドは変えない）。
@@ -43,13 +48,15 @@ allowed-tools: Bash(python3 ~/.claude/skills/daily-log/daily_log.py:*), Read, Ed
 
 4. **送る（Notion MCP）**
    ```bash
-   python3 ~/.claude/skills/daily-log/daily_log.py payload $ARGUMENTS
+   python3 ~/.claude/skills/daily-log/daily_log.py payload [YYYY-MM-DD]
    ```
    出力 JSON の `pages[].properties` を**そのまま**使う（値を書き換えない）。
    `✗ [番号] 秘密情報の可能性` で止まったら（exit 2、何も出力されない）、その番号の `title` / `summary` から
    該当部分を削るか一般的な言葉に言い換えて `.json` を直し、`payload` をやり直す。チェックを回避する目的で
    文字列を分割・伏せ字にして同じ値を残すことはしない。
-   Notion MCP のツールが未ロードなら、ToolSearch で
+   使う Notion MCP のツールは `notion-query-data-sources` / `notion-update-page` / `notion-create-pages` の 3 つ
+   （Claude Code では `mcp__claude_ai_Notion__` が前に付く）。
+   Claude Code でツールが未ロードなら、ToolSearch で
    `select:mcp__claude_ai_Notion__notion-query-data-sources,mcp__claude_ai_Notion__notion-create-pages,mcp__claude_ai_Notion__notion-update-page`
    を読み込む。
    1. 既存行を 1 回で取得する（`notion-query-data-sources`、rows mode）:
@@ -61,5 +68,6 @@ allowed-tools: Bash(python3 ~/.claude/skills/daily-log/daily_log.py:*), Read, Ed
    同じ日に再実行すると、同じ行が更新される（重複しない）。
 
 5. **報告する**
-   送ったセッションを「時間帯 / リポジトリ / タイトル / 状態」の表で短く見せる。
-   エラーが出たら内容を伝える（認証エラーなら `/mcp` で claude.ai Notion の接続を確認するよう案内する）。
+   送ったセッションを「時間帯 / ツール / リポジトリ / タイトル / 状態」の表で短く見せる。
+   エラーが出たら内容を伝える（認証エラーなら、Claude Code では `/mcp` で claude.ai Notion の接続を、
+   Codex では Notion MCP の接続設定を確認するよう案内する）。

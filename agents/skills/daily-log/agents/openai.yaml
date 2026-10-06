@@ -1,0 +1,5 @@
+interface:
+  display_name: "Daily Log"
+  short_description: "Send today's Claude Code and Codex sessions to Notion"
+policy:
+  allow_implicit_invocation: false
