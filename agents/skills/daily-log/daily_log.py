@@ -12,7 +12,7 @@ Helper for the daily-log skill (Claude Code and Codex).
   daily_log.py payload [YYYY-MM-DD]
       Prints the filled-in JSON as Notion page properties (JSON) for the Notion MCP.
       Refuses (exit 2) if a title/summary looks like it contains a credential.
-      The agent upserts them into the "Claude Code ログ" database, keyed by セッションID
+      The agent upserts them into the "AIログ" database, keyed by セッションID
       (= session_id:date), so re-running the same day updates the same rows.
       The ツール property tells Claude Code and Codex sessions apart.
 """

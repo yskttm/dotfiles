@@ -1,6 +1,6 @@
 ---
 name: daily-log
-description: 退勤時に手動で実行する。今日のClaude Code / Codexセッションを要約し、Notionの「Claude Code ログ」DBに送る。
+description: 退勤時に手動で実行する。今日のClaude Code / Codexセッションを要約し、Notionの「AIログ」DBに送る。
 argument-hint: "[YYYY-MM-DD]（省略時は今日）"
 disable-model-invocation: true
 allowed-tools: Bash(python3 ~/.claude/skills/daily-log/daily_log.py:*), Read, Edit, Write, ToolSearch, mcp__claude_ai_Notion__notion-query-data-sources, mcp__claude_ai_Notion__notion-create-pages, mcp__claude_ai_Notion__notion-update-page
