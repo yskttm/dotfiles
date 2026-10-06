@@ -31,6 +31,3 @@ credentials/
 
 # スキルのワークスペース固有設定
 /agents/skills/daily-log/config.json
-
-# Python のバイトコード
-__pycache__/

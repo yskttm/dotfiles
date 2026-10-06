@@ -191,7 +191,6 @@ nodelay
 nodenext
 nodepool
 nofile
-nogit
 NOPASSWD
 noscript
 Notifable
