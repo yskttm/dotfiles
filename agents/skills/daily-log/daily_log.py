@@ -247,7 +247,7 @@ def find_secrets(text: str) -> list[str]:
 def load_config() -> dict:
     if not CONFIG_PATH.exists():
         sys.exit(f"{CONFIG_PATH} がありません。"
-                 '{"data_source_url": "collection://...", "report_time": "22:52"} の形式で作成してください')
+                 '{"data_source_url": "collection://..."} の形式で作成してください')
     return json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
 
 
@@ -288,7 +288,6 @@ def payload(day: dt.date) -> None:
         sys.exit(2)
     print(json.dumps({
         "data_source_url": config["data_source_url"],
-        "report_time": config.get("report_time", ""),
         "key_suffix": f":{data['date']}",
         "pages": pages,
         "skipped": skipped,

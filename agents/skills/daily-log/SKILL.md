@@ -16,10 +16,8 @@ allowed-tools: Bash(python3 ~/.claude/skills/daily-log/daily_log.py:*), Read, Ed
 送信先などワークスペース固有の値は、このスキルと同じディレクトリの `config.json`（`.gitignore` で管理外）に置く。
 
 ```json
-{"data_source_url": "collection://<Notion DB の data source ID>", "report_time": "22:52"}
+{"data_source_url": "collection://<Notion DB の data source ID>"}
 ```
-
-`report_time` は日報の自動生成時刻。不要なら省略してよい。
 
 ## 手順
 
@@ -65,5 +63,3 @@ allowed-tools: Bash(python3 ~/.claude/skills/daily-log/daily_log.py:*), Read, Ed
 5. **報告する**
    送ったセッションを「時間帯 / リポジトリ / タイトル / 状態」の表で短く見せる。
    エラーが出たら内容を伝える（認証エラーなら `/mcp` で claude.ai Notion の接続を確認するよう案内する）。
-   payload 出力の `report_time` が空でなければ、最後に「{report_time}の日報に反映されます」と一言添える
-   （{report_time} 以降に実行した場合は「今日の日報の自動生成は終わっているので、翌日以降に手動で再生成が必要」と伝える）。
