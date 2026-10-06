@@ -162,6 +162,7 @@ logi
 lograge
 loki
 lrange
+lstrip
 ltrim
 ltsv
 mailcatcher
@@ -191,6 +192,7 @@ nodelay
 nodenext
 nodepool
 nofile
+nogit
 NOPASSWD
 noscript
 Notifable
@@ -200,6 +202,7 @@ oauth
 oidc
 ollama
 oneshot
+openai
 openapi
 opensearch
 opentelemetry
