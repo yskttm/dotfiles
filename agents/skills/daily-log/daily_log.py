@@ -24,9 +24,9 @@ import sys
 from pathlib import Path
 
 PROJECTS_DIR = Path.home() / ".claude" / "projects"
-CONFIG_DIR = Path.home() / ".config" / "cc-daily-log"
-CONFIG_PATH = CONFIG_DIR / "config.json"   # workspace-specific values stay out of the public repo
-OUT_DIR = CONFIG_DIR / "out"
+CONFIG_PATH = Path(__file__).resolve().parent / "config.json"   # gitignored: workspace-specific values
+DATA_DIR = Path.home() / ".config" / "cc-daily-log"
+OUT_DIR = DATA_DIR / "out"
 PER_SESSION_CHARS = 12000   # condensed transcript kept per session (head + tail)
 SKILL_COMMAND = "daily-log"  # sessions that only ran this command are skipped
 
@@ -189,7 +189,7 @@ def collect(day: dt.date) -> None:
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     # transcripts quote whole conversations, so keep them away from other local users
-    CONFIG_DIR.chmod(0o700)
+    DATA_DIR.chmod(0o700)
     OUT_DIR.chmod(0o700)
     md_path, json_path = OUT_DIR / f"{day}.md", OUT_DIR / f"{day}.json"
     with md_path.open("w", encoding="utf-8") as f:

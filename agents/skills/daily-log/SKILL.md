@@ -13,7 +13,7 @@ allowed-tools: Bash(python3 ~/.claude/skills/daily-log/daily_log.py:*), Read, Ed
 
 ## 初回セットアップ
 
-送信先などワークスペース固有の値は `~/.config/cc-daily-log/config.json`（リポジトリ管理外）に置く。
+送信先などワークスペース固有の値は、このスキルと同じディレクトリの `config.json`（`.gitignore` で管理外）に置く。
 
 ```json
 {"data_source_url": "collection://<Notion DB の data source ID>", "report_time": "22:52"}
