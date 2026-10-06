@@ -162,7 +162,6 @@ logi
 lograge
 loki
 lrange
-lstrip
 ltrim
 ltsv
 mailcatcher
