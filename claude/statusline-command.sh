@@ -14,12 +14,10 @@ used_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 # Rate limits
 five_h_pct=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
 
-# Optional: vim mode, agent, worktree, output_style
+# Optional: vim mode, agent, output_style
 vim_mode=$(echo "$input" | jq -r '.vim.mode // empty')
 agent_name=$(echo "$input" | jq -r '.agent.name // empty')
 agent_type=$(echo "$input" | jq -r '.agent.type // empty')
-worktree_name=$(echo "$input" | jq -r '.worktree.name // empty')
-worktree_branch=$(echo "$input" | jq -r '.worktree.branch // empty')
 output_style=$(echo "$input" | jq -r '.output_style.name // empty')
 
 # Git branch (from cwd or workspace.current_dir)
@@ -108,13 +106,6 @@ if [ -n "$agent_name" ]; then
   agent_str="$(printf "${GREEN}agent:${agent_name}${RESET}")"
   [ -n "$agent_type" ] && agent_str="${agent_str}$(printf "${DIM}(${agent_type})${RESET}")"
   parts+=("$agent_str")
-fi
-
-# Worktree
-if [ -n "$worktree_name" ]; then
-  wt_str="$(printf "${YELLOW}worktree:${worktree_name}${RESET}")"
-  [ -n "$worktree_branch" ] && wt_str="${wt_str}$(printf "${DIM}(${worktree_branch})${RESET}")"
-  parts+=("$wt_str")
 fi
 
 # Join all parts with separator
