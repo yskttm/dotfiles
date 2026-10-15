@@ -170,6 +170,7 @@ manarepo
 maxlength
 memcached
 mermaid
+Messsages
 minikube
 mise
 mongomapper
@@ -266,6 +267,7 @@ SIDEKIQ
 sjis
 snyk
 spbs
+specable
 sqlalchemy
 standardrb
 statefulset
@@ -298,6 +300,7 @@ trivy
 tsconfig
 typeof
 UNDELIVERY
+Unitable
 Unsandboxed
 upsell
 urlsafe
