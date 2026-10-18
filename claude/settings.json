@@ -151,7 +151,6 @@
     },
     "excludedCommands": [
       "docker",
-      "docker-compose",
       "docker compose"
     ]
   },
