@@ -1,72 +1,43 @@
 # ガイドライン
 
-## 基本ルール
+このファイルは Claude Code と Codex の両方が読む。プロジェクトの AGENTS.md・CLAUDE.md・rules と食い違う場合は、プロジェクト側を優先する。
 
-- 常に日本語で回答する。
-  - ただし、プログラミングのコンテキストにおいて、一般的に英語で表現される単語は英語で表記する。（例: OK: Ruby on Rails, NG: ルビーオンレイルズ）
-- 指示があいまいであったり、判断に迷う場合は質問をすることで、質問内容を具体化する。
+## コミュニケーション
 
-## Git ワークフロー
+- 日本語で回答する。
+- 一般的に英語表記する語は英語のまま書く（OK: Ruby on Rails、NG: ルビーオンレイルズ）。
 
-- コードの変更は必ず以下の順序で実行する：
-  1. main(or develop) branch から feature branch を作成する
-  2. ファイルを修正/作成/削除する
-  3. 適度な単位で commit する
-  4. ユーザに修正したファイル一覧を提示して、push してよいか確認をとる
-  5. push して OK ならば、branch を push し、`gh pr create --draft` で Draft PR を作成する
-  6. PR の URL を提示する
-- main への直接コミットは行わない。
-- commit
-  - メッセージは英語
-  - Conventional Commits を採用
-- PR
-  - Title は英語の Conventional Commits 形式にする
-  - Description は日本語で記述し、「概要」「変更内容」「検証結果」を含める
-  - branch の push 後は PR の作成をユーザに委ねず、Title と Description を指定して Draft PR を作成する
+## 自律的な進め方
 
-## 実装スタイル
+- 依頼を受けたら完了まで止まらずに進める。途中で「続けてよいか」を聞かない。
+- 調べればわかること（コード、ログ、コマンドの実行結果、ドキュメント）は自分で調べる。
+- 判断に迷ったら妥当な選択肢を選んで進め、選んだ仮定を最後の報告に書く。質問するのは、確かめようがなく、外すと手戻りが大きい仕様や好みの判断だけにする。
+- 完了とは、変更を実際に検証した状態を指す。テスト・lint・型チェック・build のうちプロジェクトにあるものを実行して通す。検証できなかったことは、できなかったと報告する。
 
-1. 仕様を満たす計画を作成して提示する
-2. 仕様をカバーするテストを作成する
-3. ロジックを実装する
-4. テストがパスするまで修正を繰り返す
+## 止まって確認する操作
 
-## コードスタイル
+次の操作だけは、実行前に内容を示して確認を取る。それ以外（branch 作成、ファイル編集、commit、feature branch への push、Draft PR の作成）は確認なしで進める。
 
-- 関数は単一責務にする
-- 抽象化は3箇所以上で使われるときだけ検討する
-- コメントは「なぜ」を書く。「何をしているか」はコードを読めばわかる
-- 未使用のコード・TODO コメントは残さない
+- デフォルトブランチへの push、force push、履歴の書き換え。
+- git 管理外のファイルの上書き・削除。前もって差分を示す。
+- 他人の目に触れる書き込み（PR・Issue へのコメント、PR の Ready 化や merge、Slack、Notion など）。
+- 本番環境・共有リソース・課金に影響する操作。
 
-## テスト
+## Git
 
-- 新機能には必ずテストを書く
-- モックは外部依存（API・DB）にのみ使用する
-- テストファイルはコードと同じディレクトリに置く（プロジェクト規約に従う）
+- デフォルトブランチ（main・master・develop）に直接 commit しない。作業は feature branch で行う。
+- commit は意味のある単位で分ける。message は英語の Conventional Commits（`<type>(<scope>): <subject>`）にし、subject は命令形で書く。
+- 作業が終わったら push し、`gh pr create --draft` で Draft PR を作って URL を示す。
 
-## 変更に関するルール
+## 実装
 
-- 変更内容の概要を提示してユーザーの確認を取ること
-- 既存ファイルの上書きを伴う場合は、変更差分を示してから実行すること
-
-## ドキュメント同期ルール
-
-コードを変更した後、commit する前に以下を必ず確認する：
-
-1. プロジェクト内のドキュメント相当ファイル（`README.md`, `CLAUDE.md`, `docs/` 配下など）を探す
-2. 変更内容と乖離がある箇所があれば、コードと一緒に更新する
-3. 更新した場合は `docs` type のコミットとして含める（例: `docs: update README to reflect new CLI options`）
-
-> ドキュメントの更新が不要と判断した場合も、確認済みであることをユーザーに一言伝える。
-
-## コミットメッセージ規約
-
-- Conventional Commits 形式を使う: `<type>(<scope>): <subject>`
-- type: feat / fix / refactor / docs / test / chore / style
-- subject は英語で命令形（例: `feat(auth): add OAuth2 login`）
+- コメントには「なぜ」だけを書く。未使用のコードと TODO コメントは残さない。
+- commit の前に、README・CLAUDE.md・docs/ などとコードに食い違いがないか確認する。あれば同じ PR で直し、`docs` type の commit にする。
 
 <!-- BEGIN AWS Agent Toolkit rules -->
+
 # AWS Guidance
+
 - Where these AWS rules conflict with the project's own instructions, the
   project's instructions take precedence.
 - Prefer the AWS MCP Server for AWS interactions — it provides sandboxed
@@ -84,12 +55,13 @@
   principles.
 - Do not use em dashes in AWS resource names or descriptions. Use
   hyphens instead.
+
 ## Secret Safety
 
 - MUST load the `aws-secrets-manager` skill first for any secret,
-  credential, API key, token, or password task. MUST NOT call
-  `secretsmanager get-secret-value` or `batch-get-secret-value`, and MUST
-  NOT hit the Secrets Manager Agent daemon directly. MUST use
-  `{{resolve:secretsmanager:secret-id:SecretString:json-key}}` with
-  `asm-exec` so the secret resolves at runtime without entering context.
+credential, API key, token, or password task. MUST NOT call
+`secretsmanager get-secret-value` or `batch-get-secret-value`, and MUST
+NOT hit the Secrets Manager Agent daemon directly. MUST use
+`{{resolve:secretsmanager:secret-id:SecretString:json-key}}` with
+`asm-exec` so the secret resolves at runtime without entering context.
 <!-- END AWS Agent Toolkit rules -->
