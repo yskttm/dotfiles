@@ -1,69 +1,34 @@
 # ガイドライン
 
-## 基本ルール
+このファイルは Claude Code と Codex の両方が読む。プロジェクトの AGENTS.md・CLAUDE.md・rules と食い違う場合は、プロジェクト側を優先する。
 
-- 常に日本語で回答する。
-  - ただし、プログラミングのコンテキストにおいて、一般的に英語で表現される単語は英語で表記する。（例: OK: Ruby on Rails, NG: ルビーオンレイルズ）
-- 指示があいまいであったり、判断に迷う場合は質問をすることで、質問内容を具体化する。
+## コミュニケーション
 
-## Git ワークフロー
+- 日本語で回答する。プログラミングで一般に英語表記する語は英語のまま書く（OK: Ruby on Rails、NG: ルビーオンレイルズ）。
+- コードを読む、コマンドを実行するなどで確かめられることは自分で確かめる。質問するのは、仕様や好みのように確かめようがなく、外すと手戻りが大きい判断だけにする。
 
-- コードの変更は必ず以下の順序で実行する：
-  1. main(or develop) branch から feature branch を作成する
-  2. ファイルを修正/作成/削除する
-  3. 適度な単位で commit する
-  4. ユーザに修正したファイル一覧を提示して、push してよいか確認をとる
-  5. push して OK ならば、branch を push し、`gh pr create --draft` で Draft PR を作成する
-  6. PR の URL を提示する
-- main への直接コミットは行わない。
-- commit
-  - メッセージは英語
-  - Conventional Commits を採用
-- PR
-  - Title は英語の Conventional Commits 形式にする
-  - Description は日本語で記述し、「概要」「変更内容」「検証結果」を含める
-  - branch の push 後は PR の作成をユーザに委ねず、Title と Description を指定して Draft PR を作成する
+## 確認が必要な操作
 
-## 実装スタイル
+次の操作の前は、内容を示して確認を取る。ブランチ作成、ファイル編集、ローカルでの commit は確認なしで進めてよい。
 
-1. 仕様を満たす計画を作成して提示する
-2. 仕様をカバーするテストを作成する
-3. ロジックを実装する
-4. テストがパスするまで修正を繰り返す
+- push。前もって変更ファイルの一覧を示す。
+- git 管理外のファイルの上書き・削除。前もって差分を示す。
+- 外部サービスへの書き込み（PR コメント、Slack、Notion など）。
 
-## コードスタイル
+## Git
 
-- 関数は単一責務にする
-- 抽象化は3箇所以上で使われるときだけ検討する
-- コメントは「なぜ」を書く。「何をしているか」はコードを読めばわかる
-- 未使用のコード・TODO コメントは残さない
+- デフォルトブランチ（main・master・develop）に直接 commit しない。作業は feature branch で行う。
+- commit message は英語の Conventional Commits（`<type>(<scope>): <subject>`）にし、subject は命令形で書く。
+- push したら確認を待たずに `gh pr create --draft` で Draft PR を作り、URL を示す。
+  - Title は英語の Conventional Commits 形式にする。
+  - Description は日本語で書き、「概要」「変更内容」「検証結果」を含める。
 
-## テスト
+## 実装
 
-- 新機能には必ずテストを書く
-- モックは外部依存（API・DB）にのみ使用する
-- テストファイルはコードと同じディレクトリに置く（プロジェクト規約に従う）
-
-## 変更に関するルール
-
-- 変更内容の概要を提示してユーザーの確認を取ること
-- 既存ファイルの上書きを伴う場合は、変更差分を示してから実行すること
-
-## ドキュメント同期ルール
-
-コードを変更した後、commit する前に以下を必ず確認する：
-
-1. プロジェクト内のドキュメント相当ファイル（`README.md`, `CLAUDE.md`, `docs/` 配下など）を探す
-2. 変更内容と乖離がある箇所があれば、コードと一緒に更新する
-3. 更新した場合は `docs` type のコミットとして含める（例: `docs: update README to reflect new CLI options`）
-
-> ドキュメントの更新が不要と判断した場合も、確認済みであることをユーザーに一言伝える。
-
-## コミットメッセージ規約
-
-- Conventional Commits 形式を使う: `<type>(<scope>): <subject>`
-- type: feat / fix / refactor / docs / test / chore / style
-- subject は英語で命令形（例: `feat(auth): add OAuth2 login`）
+- 新しい振る舞いにはテストを書き、テストが通るまで直す。モックは外部依存（API・DB など）にだけ使う。
+- 抽象化は3箇所以上で使われてから検討する。
+- コメントには「なぜ」だけを書く。未使用のコードと TODO コメントは残さない。
+- commit の前に、README・CLAUDE.md・docs/ などとコードに食い違いがないか確認する。あれば同じ PR で直し、`docs` type の commit にする。
 
 <!-- BEGIN AWS Agent Toolkit rules -->
 # AWS Guidance
