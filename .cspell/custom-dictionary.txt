@@ -5,7 +5,9 @@ activejob
 activemodel
 activerecord
 activestorage
+advertisable
 alacritty
+aliasable
 anthropics
 appcleaner
 arel
@@ -39,6 +41,7 @@ bundler
 bytesize
 calculatable
 capybara
+catchcopy
 categorie
 cgroup
 cgroups
@@ -54,6 +57,9 @@ codegen
 CODEOWNERS
 codepipeline
 cognito
+commentable
+componentable
+conditionable
 configmap
 conftest
 containerd
@@ -70,6 +76,7 @@ datetime
 delegators
 Deleteable
 Denormalized
+depaco
 dependabot
 devcontainer
 devcontainers
@@ -91,13 +98,17 @@ EOSL
 esbuild
 eslint
 etag
+excludable
 Expertable
 fargate
 fastapi
+favlist
+favoritable
 filesize
 fluentbit
 fluentd
 fullpath
+functionals
 gamification
 Gantt
 gemfile
@@ -117,6 +128,7 @@ haproxy
 healthcheck
 healthz
 helmfile
+historyable
 hmac
 hostnames
 hotwire
@@ -181,6 +193,7 @@ mybest
 mypage
 mypy
 mysqladmin
+mysqld
 myusername
 nats
 navigations
@@ -218,6 +231,7 @@ Pipeable
 pipenv
 pipx
 pnpm
+postbacks
 postcss
 postgresql
 prerender
@@ -231,6 +245,9 @@ pyenv
 pyproject
 pytest
 qpxy
+qualitatives
+quantitatives
+rakuten
 rbac
 rbenv
 readlines
@@ -258,14 +275,17 @@ Sagawa
 sagemaker
 saml
 SAVEPOINT
+Schemafile
 Sectionable
 selectpicker
+selfback
 sendgrid
 serverlessv
 serviceaccount
 SIDEKIQ
 sjis
 snyk
+sourceable
 spbs
 specable
 sqlalchemy
