@@ -1,0 +1,48 @@
+# 安全性を優先する既定の権限
+approval_policy = "on-request"
+approvals_reviewer = "auto_review"
+
+model = "gpt-6-astra"
+model_reasoning_effort = "low"
+
+# 表示・操作
+[desktop]
+conversationDetailMode = "STEPS_PROSE"
+ambient-suggestions-enabled = true
+show-context-window-usage = true
+composerEnterBehavior = "cmdAlways"
+followUpQueueMode = "queue"
+defaultTerminalLocation = "bottom"
+hotkey-window-projectless-default-enabled = true
+browser-show-full-url = true
+keepRemoteControlAwakeWhilePluggedIn = true
+avatar-overlay-pet-visible = true
+selected-avatar-id = "codex"
+
+[tui]
+status_line = ["model", "context-used", "five-hour-limit"]
+status_line_use_colors = true
+terminal_title = ["activity", "thread-title"]
+fullscreen_transcript = true
+
+# メモリ
+[features]
+memories = true
+
+[memories]
+generate_memories = true
+use_memories = true
+
+[marketplaces.codex-warp]
+source_type = "git"
+source = "https://github.com/warpdotdev/codex-warp.git"
+
+[marketplaces.agent-toolkit-for-aws]
+source_type = "git"
+source = "https://github.com/aws/agent-toolkit-for-aws.git"
+
+[plugins."warp@codex-warp"]
+enabled = true
+
+[plugins."aws-core@agent-toolkit-for-aws"]
+enabled = true
