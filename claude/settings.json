@@ -12,8 +12,7 @@
     "pr": ""
   },
   "permissions": {
-    "allow": [
-    ],
+    "allow": [],
     "deny": [
       "Bash(sudo *)",
       "Bash(git reset --hard *)",
@@ -91,6 +90,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
@@ -129,6 +129,12 @@
       "source": {
         "source": "github",
         "repo": "cursor/plugins"
+      }
+    },
+    "mybest-skills": {
+      "source": {
+        "source": "github",
+        "repo": "my-best/mybest-skills"
       }
     }
   },
