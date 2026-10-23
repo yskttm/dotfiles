@@ -49,13 +49,6 @@ link_dotfile "$DOTFILES_DIR/claude/rules"                    "$HOME/.claude/rule
 # Codex
 link_dotfile "$DOTFILES_DIR/agents/AGENTS.md"                "$HOME/.codex/AGENTS.md"
 
-# Codex は信頼済み project やアプリのパスを config.toml に書き込むため、リンクせず初回だけコピーする
-if [ ! -e "$HOME/.codex/config.toml" ]; then
-  mkdir -p "$HOME/.codex"
-  cp "$DOTFILES_DIR/codex/config.toml" "$HOME/.codex/config.toml"
-  echo "コピー: $HOME/.codex/config.toml"
-fi
-
 # 各 Agents(Codex, Cursor, etc.)
 link_dotfile "$DOTFILES_DIR/agents/skills"                   "$HOME/.agents/skills"
 

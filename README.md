@@ -29,12 +29,6 @@ cd ~/dotfiles
 - Raycast の設定は手動で export/import
 - 設定ファイルはパスワードが必須
 
-### Codex
-
-- `codex/config.toml` は初期設定として、`~/.codex/config.toml` が無いときだけコピーする
-- Codex が信頼済み project やアプリのパスを書き込むため、シンボリックリンクにはしない
-- 好みの設定を変えたら `codex/config.toml` にも手動で反映する
-
 ### VS Code, Warp, Chrome, etc
 
 - Cloud sync 機能を利用
