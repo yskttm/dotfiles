@@ -252,10 +252,12 @@ rbac
 rbenv
 readlines
 realip
+recalculator
 Redash
 redirector
 redis
 referer
+Refreshable
 remindable
 resendable
 RESQUE
