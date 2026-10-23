@@ -44,6 +44,7 @@ link_dotfile "$DOTFILES_DIR/agents/AGENTS.md"                "$HOME/.claude/CLAU
 link_dotfile "$DOTFILES_DIR/agents/skills"                   "$HOME/.claude/skills"
 link_dotfile "$DOTFILES_DIR/claude/settings.json"            "$HOME/.claude/settings.json"
 link_dotfile "$DOTFILES_DIR/claude/statusline-command.sh"    "$HOME/.claude/statusline-command.sh"
+link_dotfile "$DOTFILES_DIR/claude/rules"                    "$HOME/.claude/rules"
 
 # Codex
 link_dotfile "$DOTFILES_DIR/agents/AGENTS.md"                "$HOME/.codex/AGENTS.md"
